@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torchvision.utils as vutils
-from pathlib import Path
+import os
 
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -35,7 +35,9 @@ class Generator(nn.Module):
         return out
 
 G = Generator().to(DEVICE)
-G.load_state_dict(torch.load(str(Path().absolute()) + '/inverter_frogs.pkl'))
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, 'inverter_frogs.pkl')
+G.load_state_dict(torch.load(str(filename))
 G.eval()
 
 def features2images(feats):
