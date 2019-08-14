@@ -37,7 +37,7 @@ class Generator(nn.Module):
 G = Generator().to(DEVICE)
 dirname = os.path.dirname(__file__)
 filename = os.path.join(dirname, 'inverter_frogs.pkl')
-G.load_state_dict(torch.load(str(filename))
+G.load_state_dict(torch.load(filename))
 G.eval()
 
 def features2images(feats):
