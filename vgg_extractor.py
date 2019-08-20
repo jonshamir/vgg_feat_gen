@@ -33,8 +33,9 @@ class vgg19(nn.Module):
 
 vgg = vgg19().to(DEVICE)
 
-def get_VGG_features(batch, layer=4):
+def get_VGG_features(batch, layer=4, tanh=False):
     out = batch
     for i in range(layer):
         out = vgg.layers[i].forward(out)
-    return out
+    if tanh: return nn.Tanh()(out)
+    else: return out
