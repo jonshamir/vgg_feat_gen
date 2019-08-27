@@ -11,11 +11,11 @@ class vgg19(nn.Module):
     def __init__(self):
         super(vgg19, self).__init__()
         basic_model = models.vgg19(pretrained=True)
-        self.layer_1 = self.make_layers(basic_model,0,2)
-        self.layer_2 = self.make_layers(basic_model,2,7)
-        self.layer_3 = self.make_layers(basic_model,7,12)
-        self.layer_4 = self.make_layers(basic_model,12,21)
-        self.layer_5 = self.make_layers(basic_model,21,30)
+        self.layer_1 = self.make_layers(basic_model,0,1)
+        self.layer_2 = self.make_layers(basic_model,1,6)
+        self.layer_3 = self.make_layers(basic_model,6,11)
+        self.layer_4 = self.make_layers(basic_model,11,20)
+        self.layer_5 = self.make_layers(basic_model,20,29)
         self.layers = [self.layer_1, self.layer_2, self.layer_3, self.layer_4, self.layer_5]
 
         self.Tensor = torch.cuda.FloatTensor if NGPU else torch.Tensor
