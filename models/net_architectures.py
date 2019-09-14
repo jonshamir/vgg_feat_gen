@@ -5,18 +5,24 @@ class VGGInverterG(nn.Module):
     def __init__(self, nc=3):
         super(VGGInverterG, self).__init__()
         self.conv = nn.Sequential(
+            nn.Conv2d(512, 512, 3, stride=1, padding=1),
+            nn.LeakyReLU(0.2, True),
+            nn.Conv2d(512, 512, 3, stride=1, padding=1),
+            nn.LeakyReLU(0.2, True),
+            nn.Conv2d(512, 512, 3, stride=1, padding=1),
+            nn.LeakyReLU(0.2, True),
             # 14 -> 28
             nn.ConvTranspose2d(512, 256, 4, stride=2, padding=1, bias=False),
-            nn.BatchNorm2d(256),
-            nn.ReLU(),
+            # nn.BatchNorm2d(256),
+            nn.LeakyReLU(0.2, True),
             # 28 -> 56
             nn.ConvTranspose2d(256, 128, 4, stride=2, padding=1, bias=False),
-            nn.BatchNorm2d(128),
-            nn.ReLU(),
+            # nn.BatchNorm2d(128),
+            nn.LeakyReLU(0.2, True),
             # 56 -> 112
             nn.ConvTranspose2d(128, 64, 4, stride=2, padding=1, bias=False),
-            nn.BatchNorm2d(64),
-            nn.ReLU(),
+            # nn.BatchNorm2d(64),
+            nn.LeakyReLU(0.2, True),
             # 112 -> 224
             nn.ConvTranspose2d(64, nc, 4, stride=2, padding=1, bias=False),
             nn.Tanh(),
@@ -33,25 +39,26 @@ class VGGInverterD(nn.Module):
         super(VGGInverterD, self).__init__()
         self.conv = nn.Sequential(
             # 224 -> 112
-            nn.Conv2d(nc, 64, 3, stride=2, padding=1),
+            nn.Conv2d(nc, 64, 3, stride=2, padding=1, bias=False),
             nn.BatchNorm2d(64),
             nn.LeakyReLU(0.2, True),
             # 112 -> 56
-            nn.Conv2d(64, 128, 3, stride=2, padding=1),
+            nn.Conv2d(64, 128, 3, stride=2, padding=1, bias=False),
             nn.BatchNorm2d(128),
             nn.LeakyReLU(0.2, True),
             # 56 -> 28
-            nn.Conv2d(128, 256, 3, stride=2, padding=1),
+            nn.Conv2d(128, 256, 3, stride=2, padding=1, bias=False),
             nn.BatchNorm2d(256),
             nn.LeakyReLU(0.2, True),
             # 28 -> 14
-            nn.Conv2d(256, 512, 3, stride=2, padding=1),
+            nn.Conv2d(256, 512, 3, stride=2, padding=1, bias=False),
             nn.BatchNorm2d(512),
             nn.LeakyReLU(0.2, True)
         )
-        self.dense = nn.Sequential(
+        self.fc = nn.Sequential(
             # 14 -> 1
-            nn.Linear(512 * 14 * 14, 1),
+            nn.Linear(512 * 14 * 14, 512),
+            nn.Linear(512, 1),
             nn.Sigmoid()
         )
 
@@ -59,7 +66,7 @@ class VGGInverterD(nn.Module):
         # input: (N, nc, 224, 224)
         out = self.conv(input)
         out = out.view(out.size(0), -1)
-        out = self.dense(out)
+        out = self.fc(out)
         return out
 
 
