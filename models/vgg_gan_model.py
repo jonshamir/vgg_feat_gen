@@ -9,7 +9,6 @@ class VggGANModel(BaseModel):
         parser.set_defaults(dataset_mode='single')
         parser.set_defaults(gan_mode='wgangp')
         parser.set_defaults(ndf=512)
-        parser.add_argument('--vgg_relu', type=bool, default='False', help='Get VGG features after ReLU activation or before')
 
         if is_train:
             parser.add_argument('--nz', type=int, default='512', help='Size of the noise')
@@ -43,7 +42,7 @@ class VggGANModel(BaseModel):
             self.data_std = opt.data_std
 
         # define networks
-        self.netG = networks.define_G(opt.nz, opt.netG, gpu_ids=self.gpu_ids, relu_out=opt.vgg_relu)
+        self.netG = networks.define_G(opt.nz, opt.netG, gpu_ids=self.gpu_ids, relu_out=opt.vgg_relu, tanh_out=opt.normalize_data)
 
         with torch.no_grad():
             self.netInverter = networks.define_features_inverter(opt.input_nc, type='new',

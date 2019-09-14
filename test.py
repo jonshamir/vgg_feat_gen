@@ -4,6 +4,7 @@ from data import create_dataset
 from models import create_model
 from util.visualizer import save_images
 from util import html
+from util.normalization import get_normalization_data
 
 
 if __name__ == '__main__':
@@ -16,6 +17,10 @@ if __name__ == '__main__':
     opt.display_id = -1   # no visdom display; the test code saves the results to a HTML file.
     dataset = create_dataset(opt)  # create a dataset given opt.dataset_mode and other options
     opt.dataset_size = len(dataset)
+    if opt.normalize_data:
+        mean, std = get_normalization_data(dataset)
+        opt.data_mean = mean
+        opt.data_std = std
 
     model = create_model(opt)      # create a model given opt.model and other options
     model.setup(opt)               # regular setup: load and print networks; create schedulers
@@ -32,7 +37,7 @@ if __name__ == '__main__':
             break
         model.set_input(data)  # unpack data from data loader
         model.test()           # run inference
-        visuals = model.get_current_visuals()  # get image results
+        visuals = model.get_current_visuals_old()  # get image results
         img_path = model.get_image_paths()     # get image paths
         if i % 5 == 0:  # save images to an HTML file
             print('processing (%04d)-th image... %s' % (i, img_path))

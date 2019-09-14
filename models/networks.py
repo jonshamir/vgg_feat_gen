@@ -122,14 +122,14 @@ def net_to_device(net, gpu_ids=[]):
         net = torch.nn.DataParallel(net, gpu_ids)  # multi-GPUs
     return net
 
-def define_G(nz, netG='basic', norm='batch', use_dropout=False, init_type='normal', init_gain=0.02, gpu_ids=[], relu_out=False):
+def define_G(nz, netG='basic', norm='batch', use_dropout=False, init_type='normal', init_gain=0.02, gpu_ids=[], relu_out=False, tanh_out=False):
     net = None
     norm_layer = get_norm_layer(norm_type='group')
 
     if netG == 'basic':
         net = DeepGenerator(nz, norm_layer)
     if netG == 'advanced':
-        net = DeepGenerator2(nz, gen_layer=5, ngf=128, norm_layer=norm_layer, relu_out=relu_out)
+        net = DeepGenerator2(nz, gen_layer=5, ngf=128, norm_layer=norm_layer, relu_out=relu_out, tanh_out=tanh_out)
     elif netG == 'student':
         net = student_generator()
     else:
@@ -398,7 +398,7 @@ class DeepDiscriminator(nn.Module):
 
 class DeepGenerator2(nn.Module):
     # initializers
-    def __init__(self, nz, gen_layer=5, ngf=128, norm_layer=nn.BatchNorm2d, relu_out=True):
+    def __init__(self, nz, gen_layer=5, ngf=128, norm_layer=nn.BatchNorm2d, relu_out=False, tanh_out=False):
         super(DeepGenerator2, self).__init__()
         if type(norm_layer) == functools.partial:
             use_bias = norm_layer.func == nn.InstanceNorm2d
@@ -433,6 +433,7 @@ class DeepGenerator2(nn.Module):
         padding = 0 if (gen_layer == 5) else 1
         model += [nn.Conv2d(out_ch, gen_ch, kernel_size=3, stride=1, padding=padding, bias=True)]
         if relu_out: model += [nn.ReLU()]
+        if tanh_out: model += [nn.Tanh()]
 
         self.model = nn.Sequential(*model)
         self.fc = nn.Linear(self.nz, self.nz)
@@ -612,11 +613,7 @@ class student_discriminator(nn.Module):
 
 
 def define_features_inverter(input_nc, type='new', load_path=None, init_type='normal', init_gain=0.02, gpu_ids=[]):
-    if type == 'old':
-        net = Inverting_deep_generator()
-    elif type == 'multi_old':
-        net = Inverting_deep_generator_2(input_nc, 4)
-    elif type == 'new':
+    if type == 'new':
         net = VGGInverterG()
     else:
         net = FeaturesInverter(input_nc)
@@ -654,79 +651,6 @@ class FeaturesInverter(nn.Module):
     def forward(self, input):
         out = self.conv(input)
         return out
-
-class Inverting_deep_generator(nn.Module):
-    def __init__(self, in_c=512):
-        super(Inverting_deep_generator, self).__init__()
-        model = []
-
-        # As original paper:
-        for i in range(3):
-            model += [nn.Conv2d(in_c, in_c, 3, 1, 1),
-                      nn.LeakyReLU(0.2, inplace=True)]
-
-        # original paper 256(6)->256(12)->128(24)->64(48)->32(96)->3(192)
-        # Here           512(14)->256(28)->128(56)->64(122)->3(224)
-        # Original paper uses k=5, understand how to do it. output_padding?
-
-        #current: 14x14x512
-        model += [nn.ConvTranspose2d(in_c, int(in_c/2), 4, 2, 1),
-                  nn.LeakyReLU(0.2, inplace=True)]
-        #current: 28x28x256
-        model += [nn.ConvTranspose2d(int(in_c/2), int(in_c/4), 4, 2, 1),
-                  nn.LeakyReLU(0.2, inplace=True)]
-        #current: 56x56x128
-        model += [nn.ConvTranspose2d(int(in_c/4), int(in_c/8), 4, 2, 1),
-                  nn.LeakyReLU(0.2, inplace=True)]
-        #current: 122x122x64
-        model += [nn.ConvTranspose2d(int(in_c/8), 3, 4, 2, 1)]
-        #current: 224x224x3
-        model += [nn.Tanh()]
-
-        self.model = nn.Sequential(*model)
-
-    def forward(self, x):
-        return self.model(x)
-
-
-class Inverting_deep_generator_2(nn.Module):
-    def __init__(self, in_c, layer_num):
-        super(Inverting_deep_generator_2, self).__init__()
-        model = []
-
-        # As original paper:
-        for i in range(3):
-            model += [nn.Conv2d(in_c, in_c, 3, 1, 1),
-                      nn.LeakyReLU(0.2, inplace=True)]
-
-        # original paper 256(6)->256(12)->128(24)->64(48)->32(96)->3(192)
-        # Here           512(14)->256(28)->128(56)->64(122)->3(224)
-        # Original paper uses k=5, understand how to do it. output_padding?
-
-        #layer_num=4 is the final layer with 14x14x512
-        #layer_num=3 is the layer with 28x28x512
-        #layer_num=2 is the layer with 56x56x256
-        #layer_num=1 is the layer with 122x122x128
-        #layer_num=0 is the layer with 224x224x64
-
-        mult = 0.5
-        for i in range(layer_num-1):
-            mult = 2 ** i
-            #current: 14x14x512
-            model += [nn.ConvTranspose2d(int(in_c / mult), int(in_c/(mult * 2)), 4, 2, 1),
-                      nn.LeakyReLU(0.2, inplace=True)]
-        if layer_num > 0:
-            model += [nn.ConvTranspose2d(int(in_c/(mult * 2)), 3, 4, 2, 1)]
-        else:
-            model += [nn.Conv2d(in_c, 3, 3, 1, 1)]
-
-        #current: 224x224x3
-        model += [nn.Tanh()]
-
-        self.model = nn.Sequential(*model)
-
-    def forward(self, x):
-        return self.model(x)
 
 # Defines the PatchGAN discriminator with the specified arguments.
 class NLayerDiscriminator(nn.Module):

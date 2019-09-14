@@ -3,28 +3,8 @@ from options.train_options import TrainOptions
 from data import create_dataset
 from models import create_model
 from util.visualizer import Visualizer
-from models.vgg_extractor import get_VGG_features
+from util.normalization import get_normalization_data
 
-def get_normalization_data(dataset):
-    mean = 0.
-    std = 0.
-    nb_samples = 0.
-    for _, data in enumerate(dataset):
-        data = data['A']
-        batch_samples = data.size(0)
-        data = get_VGG_features(data).detach()
-        data = data.view(batch_samples, data.size(1), -1)
-        mean += data.mean(2).sum(0)
-        std += data.std(2).sum(0)
-        nb_samples += batch_samples
-
-    mean /= nb_samples
-    std /= nb_samples
-
-    mean = mean[None,:,None,None]
-    std = std[None,:,None,None]
-
-    return mean, std
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()   # get training options
@@ -32,7 +12,8 @@ if __name__ == '__main__':
     dataset_size = len(dataset)    # get the number of images in the dataset.
     print('The number of training images = %d' % dataset_size)
     if opt.normalize_data:
-        mean, std = get_normalization_data(dataset)
+        print('Calculating mean & std')
+        mean, std = get_normalization_data(dataset, opt)
         opt.data_mean = mean
         opt.data_std = std
 

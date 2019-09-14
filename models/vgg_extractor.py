@@ -3,7 +3,6 @@ import torch.nn as nn
 import torchvision.models as models
 
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-NGPU = 1 # Number of GPUs available. Use 0 for CPU mode.
 
 class vgg19_conv(nn.Module):
     def __init__(self):
@@ -15,8 +14,6 @@ class vgg19_conv(nn.Module):
         self.layer_4 = self.make_layers(basic_model,11,20)
         self.layer_5 = self.make_layers(basic_model,20,29)
         self.layers = [self.layer_1, self.layer_2, self.layer_3, self.layer_4, self.layer_5]
-
-        self.Tensor = torch.cuda.FloatTensor if NGPU else torch.Tensor
 
     def make_layers(self, basic_model, start_layer, end_layer):
         layer = []
@@ -39,8 +36,6 @@ class vgg19_relu(nn.Module):
         self.layer_5 = self.make_layers(basic_model,21,30)
         self.layers = [self.layer_1, self.layer_2, self.layer_3, self.layer_4, self.layer_5]
 
-        self.Tensor = torch.cuda.FloatTensor if NGPU else torch.Tensor
-
     def make_layers(self, basic_model, start_layer, end_layer):
         layer = []
         features = next(basic_model.children())
@@ -62,3 +57,15 @@ def get_VGG_features(batch, relu=False, layer=5):
     for i in range(layer):
         out = vgg.layers[i].forward(out)
     return out
+
+
+def get_all_VGG_features(batch, relu=False, layer=5):
+    if relu: vgg = vgg_relu
+    else: vgg = vgg_conv
+    feats = []
+
+    out = batch.to(DEVICE)
+    for i in range(layer):
+        feats.append(out)
+        out = vgg.layers[i].forward(out)
+    return feats

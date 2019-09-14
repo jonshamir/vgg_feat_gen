@@ -1,8 +1,9 @@
 import torch
 from data.base_dataset import BaseDataset, get_transform
 from data.image_folder import make_dataset
-from PIL import Image
+from PIL import Image, ImageFile
 from torchvision import transforms
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 class DeepFeatsDataset(BaseDataset):
     """Dataset class that extracts VGG deep features"""
@@ -15,7 +16,7 @@ class DeepFeatsDataset(BaseDataset):
             transforms.ColorJitter(0, 0, 0.2, 0.05),
             transforms.RandomHorizontalFlip(),
             transforms.Resize(opt.load_size),
-            transforms.CenterCrop(opt.load_size),
+            transforms.RandomCrop(opt.load_size),
             transforms.ToTensor(),
             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
        ])

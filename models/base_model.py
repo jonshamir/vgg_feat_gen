@@ -135,7 +135,6 @@ class BaseModel(ABC):
                 if isinstance(name, str):
                     visual_ret[name] = getattr(self, name)
             visuals.append(visual_ret)
-
         return visuals
 
 

@@ -31,6 +31,41 @@ class VGGInverterG(nn.Module):
 class VGGInverterD(nn.Module):
     def __init__(self, nc=3, input_size=784):
         super(VGGInverterD, self).__init__()
+        self.conv = nn.Sequential(
+            # 224 -> 112
+            nn.Conv2d(nc, 64, 3, stride=2, padding=1),
+            nn.BatchNorm2d(64),
+            nn.LeakyReLU(0.2, True),
+            # 112 -> 56
+            nn.Conv2d(64, 128, 3, stride=2, padding=1),
+            nn.BatchNorm2d(128),
+            nn.LeakyReLU(0.2, True),
+            # 56 -> 28
+            nn.Conv2d(128, 256, 3, stride=2, padding=1),
+            nn.BatchNorm2d(256),
+            nn.LeakyReLU(0.2, True),
+            # 28 -> 14
+            nn.Conv2d(256, 512, 3, stride=2, padding=1),
+            nn.BatchNorm2d(512),
+            nn.LeakyReLU(0.2, True)
+        )
+        self.dense = nn.Sequential(
+            # 14 -> 1
+            nn.Linear(512 * 14 * 14, 1),
+            nn.Sigmoid()
+        )
+
+    def forward(self, input):
+        # input: (N, nc, 224, 224)
+        out = self.conv(input)
+        out = out.view(out.size(0), -1)
+        out = self.dense(out)
+        return out
+
+
+class VGGInverterDSpectral(nn.Module):
+    def __init__(self, nc=3, input_size=784):
+        super(VGGInverterDSpectral, self).__init__()
 
         # 224 -> 112
         self.conv1 = nn.utils.spectral_norm(nn.Conv2d(nc, 64, 3, stride=2, padding=1))
