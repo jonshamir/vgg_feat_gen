@@ -60,7 +60,7 @@ class VGGInverterModel(BaseModel):
             self.fake_feats = self.get_deep_feats(self.fake_data)
 
     def backward_G(self):
-        self.loss_adv = self.BCE(self.netD(self.netG(self.real_feats)), self.ones) * 0.2
+        self.loss_adv = self.BCE(self.netD(self.netG(self.real_feats)), self.ones) * 0.1
         self.loss_feat = self.calc_loss_feat(self.fake_data, self.real_data)
         self.loss_img = self.L2(self.fake_data, self.real_data)
         self.loss_G = self.loss_adv + self.loss_feat + self.loss_img
