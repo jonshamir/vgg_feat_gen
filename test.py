@@ -18,7 +18,7 @@ if __name__ == '__main__':
     dataset = create_dataset(opt)  # create a dataset given opt.dataset_mode and other options
     opt.dataset_size = len(dataset)
     if opt.normalize_data:
-        mean, std = get_normalization_data(dataset)
+        mean, std = get_normalization_data(dataset, opt)
         opt.data_mean = mean
         opt.data_std = std
 
