@@ -5,6 +5,8 @@ CUDA_VISIBLE_DEVICES=2 python train.py --name invert_frogs_relu --dataroot ./dat
 Deep generator training:
 CUDA_VISIBLE_DEVICES=1 python train.py --name gen_frogs_conv_norm --dataroot ./datasets/frogs --dataset_mode deep_feats --gpu_ids 0 --batch_size 16 --load_size 224 --netG advanced --netD student --gan_mode wgangp --niter 1000 --normalize_data True --inverter_path pretrained_models/invert_frogs_conv_norm.pth --display_port 8098
 
+Testing:
+CUDA_VISIBLE_DEVICES=2 python test.py --name invert_zebras_conv_norm --dataroot ./datasets/zebras --dataset_mode deep_feats --gpu_ids 0 --load_size 224 --model vgg_inverter --normalize_data True
 
 
 CUDA_VISIBLE_DEVICES=0 python train.py --name gen_frogs_conv --dataroot ./datasets/frogs --dataset_mode deep_feats --gpu_ids 0 --batch_size 16 --load_size 224 --netG advanced --netD student --gan_mode wgangp --inverter_path pretrained_models/invert_frogs_conv.pth --display_port 8090
@@ -18,8 +20,8 @@ CUDA_VISIBLE_DEVICES=2 python train.py --name invert_zebras_conv_norm --dataroot
 CUDA_VISIBLE_DEVICES=2 python train.py --name invert_zebras_relu --dataroot ./datasets/zebras --dataset_mode deep_feats --gpu_ids 0 --batch_size 16 --load_size 224 --model vgg_inverter --vgg_relu True --niter 400 --display_port 8092
 CUDA_VISIBLE_DEVICES=3 python train.py --name invert_zebras_relu_norm --dataroot ./datasets/zebras --dataset_mode deep_feats --gpu_ids 0 --batch_size 16 --load_size 224 --model vgg_inverter --vgg_relu True --normalize_data True --niter 400 --display_port 8093
 
-CUDA_VISIBLE_DEVICES=3 python train.py --name invert_frogs_relu_norm --dataroot ./datasets/frogs --dataset_mode deep_feats --gpu_ids 0 --batch_size 32 --load_size 224 --model vgg_inverter --vgg_relu True --normalize_data True --niter 400 --display_port 8080
 
-
-CUDA_VISIBLE_DEVICES=2 python train.py --name invert_zebras_conv_norm --dataroot ./datasets/zebras --dataset_mode deep_feats --gpu_ids 0 --batch_size 16 --load_size 224 --model vgg_inverter --normalize_data True --niter 400 --display_port 8093
-CUDA_VISIBLE_DEVICES=2 python test.py --name invert_zebras_conv_norm --dataroot ./datasets/zebras --dataset_mode deep_feats --gpu_ids 0 --load_size 224 --model vgg_inverter --normalize_data True
+CUDA_VISIBLE_DEVICES=2 python train.py --name gen_zebras_conv --dataroot ./datasets/zebras --dataset_mode deep_feats --gpu_ids 0 --batch_size 16 --load_size 224 --netG advanced --netD student --gan_mode wgangp --inverter_path pretrained_models/invert_zebras_conv.pth --niter 500 --display_port 8092
+CUDA_VISIBLE_DEVICES=3 python train.py --name gen_zebras_conv_norm --dataroot ./datasets/zebras --dataset_mode deep_feats --gpu_ids 0 --batch_size 16 --load_size 224 --netG advanced --netD student --gan_mode wgangp --inverter_path pretrained_models/invert_zebras_conv_norm.pth --niter 500 --normalize_data True --display_port 8093
+CUDA_VISIBLE_DEVICES=2 python train.py --name gen_zebras_relu --dataroot ./datasets/zebras --dataset_mode deep_feats --gpu_ids 0 --batch_size 16 --load_size 224 --netG advanced --netD student --gan_mode wgangp --inverter_path pretrained_models/invert_zebras_relu.pth --niter 500 --vgg_relu True --display_port 8092
+CUDA_VISIBLE_DEVICES=3 python train.py --name gen_zebras_relu_norm --dataroot ./datasets/zebras --dataset_mode deep_feats --gpu_ids 0 --batch_size 16 --load_size 224 --netG advanced --netD student --gan_mode wgangp --inverter_path pretrained_models/invert_zebras_relu_norm.pth --niter 500 --vgg_relu True --normalize_data True --display_port 8093
