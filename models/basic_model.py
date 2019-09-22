@@ -26,6 +26,7 @@ class BasicModel(BaseModel):
         else: self.model_names = ['G']
 
         # define networks
+        self.nz = 100
         self.netG = BasicGenerator().to(self.device)
 
         if self.isTrain:
@@ -45,16 +46,18 @@ class BasicModel(BaseModel):
     def set_input(self, input):
         self.image_paths = input['A_paths']
         self.real_data = input['A'].to(self.device).detach()
-        self.real_feats = self.get_deep_feats(self.real_data)
+
+    def sample_noise(self, nz):
+        return torch.randn(self.real_data.size(0), self.nz, device=self.device)
 
     def forward(self):
         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>"""
-        self.fake_data = self.netG(self.real_feats)
-        if self.isTrain:
-            self.fake_feats = self.get_deep_feats(self.fake_data)
+        self.noise = self.sample_noise(self.nz)
+        self.fake_data = self.netG(self.noise)
 
     def backward_G(self):
-        self.loss_G = self.BCE(self.netD(self.netG(self.real_feats)), self.ones)
+        self.noise = self.sample_noise(self.nz)
+        self.loss_G = self.BCE(self.netD(self.netG(self.noise)), self.ones)
         self.loss_G.backward()
 
     def backward_D(self):
