@@ -160,6 +160,7 @@ class BasicDiscriminator(nn.Module):
 
         self.fc = nn.utils.spectral_norm(nn.Linear(512 * 4 * 4, 1))
         self.tanh = nn.Tanh()
+        self.sigmoid = nn.Sigmoid()
 
     def forward(self, input):
         # input: (N, nc, 56, 56)
@@ -177,5 +178,5 @@ class BasicDiscriminator(nn.Module):
         out = self.conv6(out)
         out = out.view(out.size(0), -1)
         out = self.fc(out)
-        out = self.tanh(out)
+        out = self.sigmoid(out)
         return out

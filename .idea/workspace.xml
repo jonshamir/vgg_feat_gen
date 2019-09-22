@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bab485a6-287d-4619-ace2-2436fe2f603b" name="Default Changelist" comment="PyCharm Project">
-      <change beforePath="$PROJECT_DIR$/models/basic_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/basic_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/net_architectures.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/net_architectures.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +38,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/vgg_gan_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
+            <state relative-caret-position="-68">
               <caret line="67" column="18" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="18" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
@@ -47,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/basic_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+            <state relative-caret-position="224">
+              <caret line="68" column="54" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="54" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -59,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="171" column="36" lean-forward="true" selection-start-line="171" selection-start-column="36" selection-end-line="171" selection-end-column="36" />
+            <state relative-caret-position="558">
+              <caret line="180" column="26" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -102,8 +102,8 @@
       <find>FeaturesInverter</find>
       <find>nz</find>
       <find>noise</find>
-      <find>self.noise</find>
       <find>model</find>
+      <find>self.noise</find>
       <find>feats</find>
     </findStrings>
     <replaceStrings>
@@ -135,8 +135,8 @@
         <option value="$PROJECT_DIR$/data/deep_feats_dataset.py" />
         <option value="$PROJECT_DIR$/models/networks.py" />
         <option value="$PROJECT_DIR$/commands.txt" />
-        <option value="$PROJECT_DIR$/models/net_architectures.py" />
         <option value="$PROJECT_DIR$/models/basic_model.py" />
+        <option value="$PROJECT_DIR$/models/net_architectures.py" />
       </list>
     </option>
   </component>
@@ -246,7 +246,7 @@
       <workItem from="1568187055679" duration="31075000" />
       <workItem from="1568526658057" duration="1090000" />
       <workItem from="1568620040462" duration="8529000" />
-      <workItem from="1569160673025" duration="2133000" />
+      <workItem from="1569160673025" duration="2268000" />
     </task>
     <task id="LOCAL-00001" summary="PyCharm Project">
       <created>1567597050758</created>
@@ -266,7 +266,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57931000" />
+    <option name="totallyTimeSpent" value="58066000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="33" y="23" width="1357" height="843" extended-state="0" />
@@ -492,16 +492,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/vgg_gan_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="67" column="18" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commands.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
@@ -509,10 +499,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
+    <entry file="file://$PROJECT_DIR$/models/vgg_gan_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="171" column="36" lean-forward="true" selection-start-line="171" selection-start-column="36" selection-end-line="171" selection-end-column="36" />
+        <state relative-caret-position="-68">
+          <caret line="67" column="18" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="18" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -521,8 +511,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/basic_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+        <state relative-caret-position="224">
+          <caret line="68" column="54" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="180" column="26" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
