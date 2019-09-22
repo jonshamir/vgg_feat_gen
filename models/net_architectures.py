@@ -125,7 +125,7 @@ class BasicGenerator(nn.Module):
             nn.BatchNorm2d(32),
             nn.ReLU(),
             # 56 -> 112
-            nn.ConvTranspose2d(64, 16, 4, stride=2, padding=1, bias=False),
+            nn.ConvTranspose2d(32, 16, 4, stride=2, padding=1, bias=False),
             nn.BatchNorm2d(16),
             nn.ReLU(),
             # 112 -> 224
