@@ -62,7 +62,10 @@ class BasicModel(BaseModel):
 
     def backward_D(self):
         real_outputs = self.netD(self.real_data)
+        print (real_outputs.shape)
         fake_outputs = self.netD(self.fake_data.detach())
+        print (fake_outputs.shape)
+
         D_real_loss = self.BCE(real_outputs, self.ones)
         D_fake_loss = self.BCE(fake_outputs, self.zeros)
         self.loss_D = D_real_loss + D_fake_loss
