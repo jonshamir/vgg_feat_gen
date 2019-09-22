@@ -139,40 +139,40 @@ class BasicGenerator(nn.Module):
         out = self.conv(out)
         return out
 
-    class BasicDiscriminator(nn.Module):
-        def __init__(self, nc=3, input_size=784):
-            super(Discriminator, self).__init__()
+class BasicDiscriminator(nn.Module):
+    def __init__(self, nc=3, input_size=784):
+        super(Discriminator, self).__init__()
 
-            # 224 -> 112
-            self.conv1 = nn.utils.spectral_norm(nn.Conv2d(nc, 16, 3, stride=2, padding=1))
-            # 112 -> 56
-            self.conv2 = nn.utils.spectral_norm(nn.Conv2d(16, 32, 3, stride=2, padding=1))
-            # 56 -> 28
-            self.conv3 = nn.utils.spectral_norm(nn.Conv2d(32, 64, 3, stride=2, padding=1))
-            # 28 -> 14
-            self.conv4 = nn.utils.spectral_norm(nn.Conv2d(64, 128, 3, stride=2, padding=1))
-            # 14 -> 7
-            self.conv5 = nn.utils.spectral_norm(nn.Conv2d(128, 256, 3, stride=2, padding=1))
-            # 7 -> 4
-            self.conv6 = nn.utils.spectral_norm(nn.Conv2d(256, 512, 3, stride=2, padding=1))
+        # 224 -> 112
+        self.conv1 = nn.utils.spectral_norm(nn.Conv2d(nc, 16, 3, stride=2, padding=1))
+        # 112 -> 56
+        self.conv2 = nn.utils.spectral_norm(nn.Conv2d(16, 32, 3, stride=2, padding=1))
+        # 56 -> 28
+        self.conv3 = nn.utils.spectral_norm(nn.Conv2d(32, 64, 3, stride=2, padding=1))
+        # 28 -> 14
+        self.conv4 = nn.utils.spectral_norm(nn.Conv2d(64, 128, 3, stride=2, padding=1))
+        # 14 -> 7
+        self.conv5 = nn.utils.spectral_norm(nn.Conv2d(128, 256, 3, stride=2, padding=1))
+        # 7 -> 4
+        self.conv6 = nn.utils.spectral_norm(nn.Conv2d(256, 512, 3, stride=2, padding=1))
 
-            self.fc = nn.utils.spectral_norm(nn.Linear(512 * 4 * 4, 1))
-            self.tanh = nn.Tanh()
+        self.fc = nn.utils.spectral_norm(nn.Linear(512 * 4 * 4, 1))
+        self.tanh = nn.Tanh()
 
-        def forward(self, input):
-            # input: (N, nc, 56, 56)
-            out = input
-            out = self.conv1(out)
-            out = nn.LeakyReLU(0.2)(out)
-            out = self.conv2(out)
-            out = nn.LeakyReLU(0.2)(out)
-            out = self.conv3(out)
-            out = nn.LeakyReLU(0.2)(out)
-            out = self.conv4(out)
-            out = nn.LeakyReLU(0.2)(out)
-            out = self.conv5(out)
-            out = nn.LeakyReLU(0.2)(out)
-            out = self.conv6(out)
-            out = out.view(out.size(0), -1)
-            out = self.tanh(out)
-            return out
+    def forward(self, input):
+        # input: (N, nc, 56, 56)
+        out = input
+        out = self.conv1(out)
+        out = nn.LeakyReLU(0.2)(out)
+        out = self.conv2(out)
+        out = nn.LeakyReLU(0.2)(out)
+        out = self.conv3(out)
+        out = nn.LeakyReLU(0.2)(out)
+        out = self.conv4(out)
+        out = nn.LeakyReLU(0.2)(out)
+        out = self.conv5(out)
+        out = nn.LeakyReLU(0.2)(out)
+        out = self.conv6(out)
+        out = out.view(out.size(0), -1)
+        out = self.tanh(out)
+        return out
