@@ -5,7 +5,7 @@ from PIL import Image, ImageFile
 from torchvision import transforms
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
-class DeepFeatsDataset(BaseDataset):
+class AugmentedDataset(BaseDataset):
     """Dataset class that extracts VGG deep features"""
 
     def __init__(self, opt):
