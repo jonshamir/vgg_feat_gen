@@ -122,12 +122,14 @@ class BasicGenerator(nn.Module):
             nn.ReLU(),
             # 28 -> 56
             nn.ConvTranspose2d(64, 32, 4, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(32),
             nn.ReLU(),
             # 56 -> 112
             nn.ConvTranspose2d(64, 16, 4, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(16),
             nn.ReLU(),
             # 112 -> 224
-            nn.ConvTranspose2d(64, nc, 4, stride=2, padding=1, bias=False),
+            nn.ConvTranspose2d(16, nc, 4, stride=2, padding=1, bias=False),
             nn.Tanh(),
         )
 
