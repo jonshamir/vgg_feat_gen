@@ -102,7 +102,7 @@ class VGGInverterDSpectral(nn.Module):
 
 class BasicGenerator(nn.Module):
     def __init__(self, input_size=100, nc=3):
-        super(Generator, self).__init__()
+        super(BasicGenerator, self).__init__()
         self.fc = nn.Sequential(
             nn.Linear(input_size, 4 * 4 * 512),
             nn.ReLU(),
@@ -141,7 +141,7 @@ class BasicGenerator(nn.Module):
 
 class BasicDiscriminator(nn.Module):
     def __init__(self, nc=3, input_size=784):
-        super(Discriminator, self).__init__()
+        super(BasicDiscriminator, self).__init__()
 
         # 224 -> 112
         self.conv1 = nn.utils.spectral_norm(nn.Conv2d(nc, 16, 3, stride=2, padding=1))
