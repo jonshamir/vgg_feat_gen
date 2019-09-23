@@ -180,5 +180,5 @@ class BasicDiscriminator(nn.Module):
 
         out = out.view(out.size(0), -1)
         out = self.fc(out)
-        out = self.tanh(out)
+        # out = self.tanh(out)
         return out
