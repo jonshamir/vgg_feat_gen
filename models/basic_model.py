@@ -69,11 +69,11 @@ class BasicModel(BaseModel):
         # D_real_loss = self.BCE(real_outputs, self.ones)
         # D_fake_loss = self.BCE(fake_outputs, self.zeros)
         ## Wasserstein loss
-        D_real_loss = -torch.mean(real_outputs)
-        D_fake_loss = torch.mean(fake_outputs)
+        # D_real_loss = -torch.mean(real_outputs)
+        # D_fake_loss = torch.mean(fake_outputs)
         ## Hinge loss
-        # D_real_loss = nn.ReLU()(1.0 - real_outputs).mean()
-        # D_fake_loss = nn.ReLU()(1.0 + fake_outputs).mean()
+        D_real_loss = nn.ReLU()(1.0 - real_outputs).mean()
+        D_fake_loss = nn.ReLU()(1.0 + fake_outputs).mean()
         self.loss_D = D_real_loss + D_fake_loss
         self.loss_D.backward()
 
