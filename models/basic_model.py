@@ -74,7 +74,7 @@ class BasicModel(BaseModel):
         ## Hinge loss
         # D_real_loss = nn.ReLU()(1.0 - real_outputs).mean()
         # D_fake_loss = nn.ReLU()(1.0 + fake_outputs).mean()
-        self.D_loss = D_real_loss + D_fake_loss
+        self.loss_D = D_real_loss + D_fake_loss
         self.loss_D.backward()
 
     def optimize_parameters(self, args):
