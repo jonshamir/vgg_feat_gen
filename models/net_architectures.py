@@ -176,6 +176,8 @@ class BasicDiscriminator(nn.Module):
         out = self.conv5(out)
         out = nn.LeakyReLU(0.2)(out)
         out = self.conv6(out)
+        out = nn.LeakyReLU(0.2)(out)
+
         out = out.view(out.size(0), -1)
         out = self.fc(out)
         out = self.sigmoid(out)

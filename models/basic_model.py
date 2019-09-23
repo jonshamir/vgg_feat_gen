@@ -57,15 +57,24 @@ class BasicModel(BaseModel):
 
     def backward_G(self):
         self.noise = self.sample_noise(self.nz)
-        self.loss_G = self.BCE(self.netD(self.netG(self.noise)), self.ones)
+        z_outputs = self.netD(self.netG(self.noise))
+        # self.loss_G = self.BCE(z_outputs, self.ones)
+        self.loss_G = -torch.mean(z_outputs)
         self.loss_G.backward()
 
     def backward_D(self):
         real_outputs = self.netD(self.real_data)
         fake_outputs = self.netD(self.fake_data.detach())
-        D_real_loss = self.BCE(real_outputs, self.ones)
-        D_fake_loss = self.BCE(fake_outputs, self.zeros)
-        self.loss_D = D_real_loss + D_fake_loss
+        # # Normal loss
+        # D_real_loss = self.BCE(real_outputs, self.ones)
+        # D_fake_loss = self.BCE(fake_outputs, self.zeros)
+        ## Wasserstein loss
+        D_real_loss = -torch.mean(real_outputs)
+        D_fake_loss = torch.mean(fake_outputs)
+        ## Hinge loss
+        # D_real_loss = nn.ReLU()(1.0 - real_outputs).mean()
+        # D_fake_loss = nn.ReLU()(1.0 + fake_outputs).mean()
+        self.D_loss = D_real_loss + D_fake_loss
         self.loss_D.backward()
 
     def optimize_parameters(self, args):
