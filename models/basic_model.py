@@ -40,8 +40,8 @@ class BasicModel(BaseModel):
             self.ones = torch.ones([opt.batch_size, 1]).to(self.device)
             self.zeros = torch.zeros([opt.batch_size, 1]).to(self.device)
             # define and initialize optimizers
-            self.G_opt = torch.optim.Adam(self.netG.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
-            self.D_opt = torch.optim.Adam(self.netD.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
+            self.G_opt = torch.optim.Adam(self.netG.parameters(), lr=opt.lr, betas=(opt.beta1, 0.99))
+            self.D_opt = torch.optim.Adam(self.netD.parameters(), lr=opt.lr, betas=(opt.beta1, 0.99))
             self.optimizers = [self.G_opt, self.D_opt]
 
     def set_input(self, input):
@@ -70,11 +70,11 @@ class BasicModel(BaseModel):
         # D_real_loss = self.BCE(real_outputs, self.ones)
         # D_fake_loss = self.BCE(fake_outputs, self.zeros)
         ## Wasserstein loss
-        # D_real_loss = -torch.mean(real_outputs)
-        # D_fake_loss = torch.mean(fake_outputs)
+        D_real_loss = -torch.mean(real_outputs)
+        D_fake_loss = torch.mean(fake_outputs)
         ## Hinge loss
-        D_real_loss = nn.ReLU()(1.0 - real_outputs).mean()
-        D_fake_loss = nn.ReLU()(1.0 + fake_outputs).mean()
+        # D_real_loss = nn.ReLU()(1.0 - real_outputs).mean()
+        # D_fake_loss = nn.ReLU()(1.0 + fake_outputs).mean()
         self.loss_D = D_real_loss + D_fake_loss
         self.loss_D.backward()
 
