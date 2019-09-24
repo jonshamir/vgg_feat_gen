@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/commands.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/basic_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/basic_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/net_architectures.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/net_architectures.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,17 +32,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commands.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
+            <state relative-caret-position="522">
               <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/vgg_gan_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1219">
-              <caret line="64" column="72" selection-start-line="64" selection-start-column="72" selection-end-line="64" selection-end-column="72" />
+            <state relative-caret-position="-824">
+              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -52,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/basic_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-426">
-              <caret line="42" column="93" selection-start-line="42" selection-start-column="88" selection-end-line="42" selection-end-column="93" />
+            <state relative-caret-position="44">
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -62,25 +63,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/networks.py">
+        <entry file="file://$PROJECT_DIR$/models/base_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2158">
-              <caret line="589" column="20" selection-start-line="589" selection-start-column="13" selection-end-line="589" selection-end-column="20" />
+            <state relative-caret-position="491">
+              <caret line="204" column="80" lean-forward="true" selection-start-line="204" selection-start-column="49" selection-end-line="204" selection-end-column="80" />
               <folding>
-                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="158" column="38" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
+            <state relative-caret-position="2165">
+              <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/options/train_options.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-135">
+              <caret line="9" column="12" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -89,16 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>adam</find>
-      <find>opt</find>
-      <find>optim</find>
-      <find>optimize_parameters</find>
-      <find>args</find>
-      <find>ones</find>
-      <find>loss</find>
-      <find>loss_G</find>
-      <find>D_opt</find>
-      <find>VGGInverterDSpectral</find>
       <find>normalize_data</find>
       <find>BCE</find>
       <find>L2</find>
@@ -114,11 +126,21 @@
       <find>VGGInverterD</find>
       <find>deep_feats</find>
       <find>FeaturesInverter</find>
-      <find>nz</find>
       <find>noise</find>
       <find>model</find>
       <find>self.noise</find>
       <find>feats</find>
+      <find>sample_noise</find>
+      <find>ד</find>
+      <find>continue_train</find>
+      <find>get_scheduler</find>
+      <find>nz</find>
+      <find>init_</find>
+      <find>print_networks</find>
+      <find>init</find>
+      <find>setup</find>
+      <find>init_weights</find>
+      <find>__patch_instance_norm_state_dict</find>
     </findStrings>
     <replaceStrings>
       <replace>augmented</replace>
@@ -149,8 +171,8 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/data/deep_feats_dataset.py" />
         <option value="$PROJECT_DIR$/models/networks.py" />
-        <option value="$PROJECT_DIR$/models/net_architectures.py" />
         <option value="$PROJECT_DIR$/models/basic_model.py" />
+        <option value="$PROJECT_DIR$/models/net_architectures.py" />
         <option value="$PROJECT_DIR$/commands.txt" />
       </list>
     </option>
@@ -181,12 +203,13 @@
             <path>
               <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
               <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="checkpoints" type="462c0819:PsiDirectoryNode" />
+              <item name="gen_frogs_basic_56" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
               <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
@@ -262,7 +285,7 @@
       <workItem from="1568526658057" duration="1090000" />
       <workItem from="1568620040462" duration="8529000" />
       <workItem from="1569160673025" duration="4516000" />
-      <workItem from="1569310799831" duration="3564000" />
+      <workItem from="1569310799831" duration="8319000" />
     </task>
     <task id="LOCAL-00001" summary="PyCharm Project">
       <created>1567597050758</created>
@@ -282,7 +305,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63878000" />
+    <option name="totallyTimeSpent" value="68633000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="23" width="1421" height="843" extended-state="0" />
@@ -461,54 +484,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/augmented_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/base_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3080">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/options/train_options.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-219">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/environment.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands.txt">
+    <entry file="file://$PROJECT_DIR$/models/vgg_gan_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="22" />
+        <state relative-caret-position="-824">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/basic_model.py">
+    <entry file="file://$PROJECT_DIR$/models/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-426">
-          <caret line="42" column="93" selection-start-line="42" selection-start-column="88" selection-end-line="42" selection-end-column="93" />
+        <state relative-caret-position="1196">
+          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/augmented_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="22" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -517,28 +516,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/networks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2158">
-          <caret line="589" column="20" selection-start-line="589" selection-start-column="13" selection-end-line="589" selection-end-column="20" />
+        <state relative-caret-position="330">
+          <caret line="69" column="16" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="16" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options/train_options.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/basic_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/base_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="204" column="80" lean-forward="true" selection-start-line="204" selection-start-column="49" selection-end-line="204" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="158" column="38" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/vgg_gan_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1219">
-          <caret line="64" column="72" selection-start-line="64" selection-start-column="72" selection-end-line="64" selection-end-column="72" />
+        <state relative-caret-position="2165">
+          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>

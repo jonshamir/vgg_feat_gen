@@ -27,6 +27,6 @@ CUDA_VISIBLE_DEVICES=2 python train.py --name gen_zebras_relu --dataroot ./datas
 CUDA_VISIBLE_DEVICES=3 python train.py --name gen_zebras_relu_norm --dataroot ./datasets/zebras --dataset_mode augmented --gpu_ids 0 --batch_size 16 --load_size 224 --netG advanced --netD student --gan_mode wgangp --inverter_path pretrained_models/invert_zebras_relu_norm.pth --niter 500 --vgg_relu True --normalize_data True --display_port 8093
 
 CUDA_VISIBLE_DEVICES=2 python train.py --name gen_zebras_basic --dataroot ./datasets/zebras --dataset_mode augmented --gpu_ids 0 --batch_size 32 --load_size 224 --model basic --niter 500 --display_port 8090
-CUDA_VISIBLE_DEVICES=3 python train.py --name gen_frogs_basic --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 32 --load_size 224 --model basic --beta1 0.5 --niter 500 --display_port 8091
+CUDA_VISIBLE_DEVICES=3 python train.py --name gen_frogs_basic --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 32 --load_size 224 --model basic --beta1 0 --niter 600 --display_port 8091
 
-CUDA_VISIBLE_DEVICES=2 python test.py --name gen_frogs_basic --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --load_size 224 --model basic
+CUDA_VISIBLE_DEVICES=2 python train.py --name gen_frogs_basic_56 --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 32 --load_size 56 --model basic --beta1 0 --niter 500 --display_port 8092

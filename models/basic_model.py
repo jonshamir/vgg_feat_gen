@@ -23,7 +23,7 @@ class BasicModel(BaseModel):
         self.visual_names = ['real_data', 'fake_data']
 
         # specify the models you want to save to the disk
-        if self.isTrain: self.model_names = ['G', 'D']
+        if self.isTrain: self.model_names = ['D', 'G']
         else: self.model_names = ['G']
 
         # define networks
@@ -48,16 +48,16 @@ class BasicModel(BaseModel):
         self.image_paths = input['A_paths']
         self.real_data = input['A'].to(self.device).detach()
 
-    def sample_noise(self, nz):
+    def sample_noise(self):
         return torch.randn(self.real_data.size(0), self.nz, device=self.device)
 
     def forward(self):
         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>"""
-        self.noise = self.sample_noise(self.nz)
+        self.noise = self.sample_noise()
         self.fake_data = self.netG(self.noise)
 
     def backward_G(self):
-        self.noise = self.sample_noise(self.nz)
+        self.noise = self.sample_noise()
         z_outputs = self.netD(self.netG(self.noise))
         # self.loss_G = self.BCE(z_outputs, self.ones)
         self.loss_G = -torch.mean(z_outputs)
@@ -65,7 +65,7 @@ class BasicModel(BaseModel):
 
     def backward_D(self):
         real_outputs = self.netD(self.real_data)
-        fake_outputs = self.netD(self.fake_data.detach())
+        fake_outputs = self.netD(self.fake_data)
         # # Normal loss
         # D_real_loss = self.BCE(real_outputs, self.ones)
         # D_fake_loss = self.BCE(fake_outputs, self.zeros)

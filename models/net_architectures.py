@@ -120,15 +120,15 @@ class BasicGenerator(nn.Module):
             nn.ConvTranspose2d(128, 64, 4, stride=2, padding=1, bias=False),
             nn.BatchNorm2d(64),
             nn.ReLU(),
-            # 28 -> 56
+            # # 28 -> 56
             nn.ConvTranspose2d(64, 32, 4, stride=2, padding=1, bias=False),
             nn.BatchNorm2d(32),
             nn.ReLU(),
-            # 56 -> 112
+            # # 56 -> 112
             nn.ConvTranspose2d(32, 16, 4, stride=2, padding=1, bias=False),
             nn.BatchNorm2d(16),
             nn.ReLU(),
-            # 112 -> 224
+            # # 112 -> 224
             nn.ConvTranspose2d(16, nc, 4, stride=2, padding=1, bias=False),
             nn.Tanh(),
         )
@@ -153,9 +153,9 @@ class BasicDiscriminator(nn.Module):
         self.conv3 = nn.utils.spectral_norm(nn.Conv2d(32, 64, 3, stride=2, padding=1))
         # 28 -> 14
         self.conv4 = nn.utils.spectral_norm(nn.Conv2d(64, 128, 3, stride=2, padding=1))
-        # 14 -> 7
+        # # 14 -> 7
         self.conv5 = nn.utils.spectral_norm(nn.Conv2d(128, 256, 3, stride=2, padding=1))
-        # 7 -> 4
+        # # 7 -> 4
         self.conv6 = nn.utils.spectral_norm(nn.Conv2d(256, 512, 3, stride=2, padding=1))
 
         self.fc = nn.utils.spectral_norm(nn.Linear(512 * 4 * 4, 1))
