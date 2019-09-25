@@ -9,10 +9,9 @@ class VggGANModel(BaseModel):
         parser.set_defaults(dataset_mode='single')
         parser.set_defaults(gan_mode='wgangp')
         parser.set_defaults(ndf=512)
-
-        if is_train:
-            parser.add_argument('--nz', type=int, default='512', help='Size of the noise')
-            parser.add_argument('--inverter_path', type=str, default='pretrained_models//inverter_net_4_zebra_relu.pth', help='path to saved inverter')
+        parser.add_argument('--inverter_path', type=str, default='pretrained_models//inverter_net_4_zebra_relu.pth',
+                            help='path to saved inverter')
+        parser.add_argument('--nz', type=int, default='512', help='Size of the noise')
 
         return parser
 
