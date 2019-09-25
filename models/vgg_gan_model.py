@@ -57,6 +57,7 @@ class VggGANModel(BaseModel):
             self.optimizers = [self.G_opt, self.D_opt]
 
     def set_input(self, input):
+        self.image_paths = input['A_paths']
         self.real_data = input['A'].to(self.device)
         self.real_feats = self.get_deep_feats(self.real_data)
 
