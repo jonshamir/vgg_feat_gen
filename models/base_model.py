@@ -143,8 +143,8 @@ class BaseModel(ABC):
         visual_ret = OrderedDict()
         for name in self.visual_names:
             if isinstance(name, str):
+                print (getattr(self, name))
                 visual_ret[name] = getattr(self, name)
-        print (len(visual_ret))
 
         return visual_ret
 
