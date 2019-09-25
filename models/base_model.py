@@ -141,10 +141,11 @@ class BaseModel(ABC):
     def get_current_visuals_old(self):
         """Return visualization images. train.py will display these images with visdom, and save the images to a HTML"""
         visual_ret = OrderedDict()
-        print (self.visual_names)
         for name in self.visual_names:
             if isinstance(name, str):
                 visual_ret[name] = getattr(self, name)
+        print (len(visual_ret))
+
         return visual_ret
 
     def get_current_losses(self):
