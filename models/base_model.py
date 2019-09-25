@@ -192,7 +192,7 @@ class BaseModel(ABC):
                 if hasattr(state_dict, '_metadata'):
                     del state_dict._metadata
 
-                net.load_state_dict(state_dict)
+                net.load_state_dict(state_dict, strict=False)
 
     def print_networks(self, verbose):
         """Print the total number of parameters in the network and (if verbose) network architecture
