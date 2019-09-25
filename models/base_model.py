@@ -144,8 +144,9 @@ class BaseModel(ABC):
         print (self.visual_names)
         for name in self.visual_names:
             if isinstance(name, str):
-                print (name)
                 visual_ret[name] = getattr(self, name)
+            elif isinstance(name, list):
+                visual_ret[name[0]] = getattr(self, name[0])
 
         return visual_ret
 
