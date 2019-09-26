@@ -5,23 +5,27 @@ class VGGInverterG(nn.Module):
     def __init__(self, nc=3):
         super(VGGInverterG, self).__init__()
         self.conv = nn.Sequential(
+            # 14 -> 14
             nn.Conv2d(512, 512, 3, stride=1, padding=1),
+            nn.BatchNorm2d(512),
             nn.LeakyReLU(0.2, True),
             nn.Conv2d(512, 512, 3, stride=1, padding=1),
+            nn.BatchNorm2d(512),
             nn.LeakyReLU(0.2, True),
             nn.Conv2d(512, 512, 3, stride=1, padding=1),
+            nn.BatchNorm2d(512),
             nn.LeakyReLU(0.2, True),
             # 14 -> 28
             nn.ConvTranspose2d(512, 256, 4, stride=2, padding=1, bias=False),
-            # nn.BatchNorm2d(256),
+            nn.BatchNorm2d(256),
             nn.LeakyReLU(0.2, True),
             # 28 -> 56
             nn.ConvTranspose2d(256, 128, 4, stride=2, padding=1, bias=False),
-            # nn.BatchNorm2d(128),
+            nn.BatchNorm2d(128),
             nn.LeakyReLU(0.2, True),
             # 56 -> 112
             nn.ConvTranspose2d(128, 64, 4, stride=2, padding=1, bias=False),
-            # nn.BatchNorm2d(64),
+            nn.BatchNorm2d(64),
             nn.LeakyReLU(0.2, True),
             # 112 -> 224
             nn.ConvTranspose2d(64, nc, 4, stride=2, padding=1, bias=False),
@@ -39,25 +43,29 @@ class VGGInverterD(nn.Module):
         super(VGGInverterD, self).__init__()
         self.conv = nn.Sequential(
             # 224 -> 112
-            nn.Conv2d(nc, 64, 3, stride=2, padding=1, bias=False),
-            nn.BatchNorm2d(64),
+            nn.Conv2d(nc, 16, 3, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(16),
             nn.LeakyReLU(0.2, True),
             # 112 -> 56
+            nn.Conv2d(16, 32, 3, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(32),
+            nn.LeakyReLU(0.2, True),
+            # 56 -> 28
+            nn.Conv2d(32, 64, 3, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(64),
+            nn.LeakyReLU(0.2, True),
+            # 28 -> 14
             nn.Conv2d(64, 128, 3, stride=2, padding=1, bias=False),
             nn.BatchNorm2d(128),
             nn.LeakyReLU(0.2, True),
-            # 56 -> 28
+            # 14 -> 7
             nn.Conv2d(128, 256, 3, stride=2, padding=1, bias=False),
             nn.BatchNorm2d(256),
-            nn.LeakyReLU(0.2, True),
-            # 28 -> 14
-            nn.Conv2d(256, 512, 3, stride=2, padding=1, bias=False),
-            nn.BatchNorm2d(512),
             nn.LeakyReLU(0.2, True)
         )
         self.fc = nn.Sequential(
-            # 14 -> 1
-            nn.Linear(512 * 14 * 14, 512),
+            # 7 -> 1
+            nn.Linear(256 * 7 * 7, 512),
             nn.Linear(512, 1),
             nn.Sigmoid()
         )
@@ -150,5 +158,53 @@ class BasicDiscriminator(nn.Module):
 
         out = out.view(out.size(0), -1)
         out = self.fc(out)
-        # out = self.tanh(out)
+        out = self.sigmoid(out)
+        return out
+
+class DeepGenerator(nn.Module):
+    # initializers
+    def __init__(self, d=128):
+        super(DeepGenerator, self).__init__()
+        self.fc = nn.Sequential(
+            View(-1, 128),
+            nn.Linear(128, 128),
+            View(-1, 128, 1, 1)
+        )
+
+        self.conv = nn.Sequential(
+            nn.Conv2d(128, d, 3, 1, 1),
+            nn.BatchNorm2d(d),
+            nn.LeakyReLU(0.2),
+
+            nn.Upsample(scale_factor=2),
+            nn.Conv2d(d, 2*d, 3, 1, 1),
+            nn.BatchNorm2d(2*d),
+            nn.LeakyReLU(0.2),
+
+            nn.Upsample(scale_factor=2),
+            nn.Conv2d(2*d, 4*d, 3, 1, 1),
+            nn.BatchNorm2d(4*d),
+            nn.LeakyReLU(0.2),
+
+            nn.Upsample(scale_factor=2),
+            nn.Conv2d(4*d, 4*d, 3, 1, 1),
+            nn.BatchNorm2d(4*d),
+            nn.LeakyReLU(0.2),
+
+            nn.Upsample(scale_factor=2),
+            nn.Conv2d(4*d, 4*d, 3, 1, 1),
+            nn.BatchNorm2d(4*d),
+            nn.LeakyReLU(0.2),
+
+            nn.Conv2d(4*d, 8*d, 3, 1, 1),
+            nn.BatchNorm2d(8*d),
+            nn.LeakyReLU(0.2),
+
+            nn.Conv2d(8*d, 512, 3, 1, 0)
+        )
+        self.relu = nn.ReLU()
+
+    def forward(self, input):
+        out = self.fc(input)
+        out = self.conv(out)
         return out

@@ -2,7 +2,7 @@ import torch
 from .base_model import BaseModel
 from . import networks
 from .vgg_extractor import get_VGG_features, get_all_VGG_features
-from .net_architectures import VGGInverterG, VGGInverterD
+from .net_architectures import VGGInverterG, VGGInverterD, BasicDiscriminator
 
 
 class VGGInverterModel(BaseModel):
@@ -18,7 +18,8 @@ class VGGInverterModel(BaseModel):
         self.vgg_relu = opt.vgg_relu
 
         # specify the training losses you want to print out
-        self.loss_names = ['D', 'G', 'adv', 'feat', 'img', 'D_real', 'D_fake']
+        self.loss_names = ['D', 'G', 'adv', 'feat', 'img']
+        # self.loss_names = ['D', 'G', 'D_real', 'D_fake']
         # specify the images you want to save and display
         self.visual_names = ['real_data', 'fake_data']
 
@@ -35,7 +36,7 @@ class VGGInverterModel(BaseModel):
         self.netG = VGGInverterG().to(self.device)
 
         if self.isTrain:
-            self.netD = VGGInverterD().to(self.device)
+            self.netD = BasicDiscriminator().to(self.device)
             # define loss functions
             self.L1 = torch.nn.L1Loss()
             self.L2 = torch.nn.MSELoss()
@@ -44,8 +45,8 @@ class VGGInverterModel(BaseModel):
             self.ones = torch.ones([opt.batch_size, 1]).to(self.device)
             self.zeros = torch.zeros([opt.batch_size, 1]).to(self.device)
             # define and initialize optimizers
-            self.G_opt = torch.optim.Adam(self.netG.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
-            self.D_opt = torch.optim.Adam(self.netD.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
+            self.G_opt = torch.optim.Adam(self.netG.parameters(), lr=opt.lr, betas=(opt.beta1, 0.99))
+            self.D_opt = torch.optim.Adam(self.netD.parameters(), lr=opt.lr, betas=(opt.beta1, 0.99))
             self.optimizers = [self.G_opt, self.D_opt]
 
     def set_input(self, input):
@@ -61,20 +62,16 @@ class VGGInverterModel(BaseModel):
 
     def backward_G(self):
         self.loss_adv = self.BCE(self.netD(self.netG(self.real_feats)), self.ones) * 0.1
-        self.loss_feat = self.calc_loss_feat(self.fake_data, self.real_data)
-        self.loss_img = self.L2(self.fake_data, self.real_data)
-        self.loss_G = self.loss_adv + self.loss_feat*0 + self.loss_img*0
+        self.loss_feat = self.calc_loss_feat(self.fake_data, self.real_data) * 0.4
+        self.loss_img = self.L2(self.fake_data, self.real_data) * 2
+        self.loss_G = self.loss_adv + self.loss_feat + self.loss_img
         self.loss_G.backward()
 
     def backward_D(self):
         real_outputs = self.netD(self.real_data)
         fake_outputs = self.netD(self.fake_data.detach())
-        # print(real_outputs.min())
-        # print(fake_outputs.min())
-        # print(real_outputs.max())
-        # print(fake_outputs.max())
-        self.loss_D_real = self.BCE(real_outputs, self.ones)
-        self.loss_D_fake = self.BCE(fake_outputs, self.zeros)
+        self.loss_D_real = self.BCE(real_outputs, self.ones) * 0.1
+        self.loss_D_fake = self.BCE(fake_outputs, self.zeros) * 0.1
         self.loss_D = self.loss_D_real + self.loss_D_fake
         self.loss_D.backward()
 
