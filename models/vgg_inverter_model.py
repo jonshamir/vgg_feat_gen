@@ -2,7 +2,7 @@ import torch
 from .base_model import BaseModel
 from . import networks
 from .vgg_extractor import get_VGG_features, get_all_VGG_features
-from .net_architectures import VGGInverterG, VGGInverterD, VGGInverterDSpectral
+from .net_architectures import VGGInverterG, VGGInverterD
 
 
 class VGGInverterModel(BaseModel):
@@ -18,7 +18,7 @@ class VGGInverterModel(BaseModel):
         self.vgg_relu = opt.vgg_relu
 
         # specify the training losses you want to print out
-        self.loss_names = ['D', 'G', 'adv', 'feat', 'img']
+        self.loss_names = ['D', 'G', 'adv', 'feat', 'img', 'D_real', 'D_fake']
         # specify the images you want to save and display
         self.visual_names = ['real_data', 'fake_data']
 
@@ -63,15 +63,19 @@ class VGGInverterModel(BaseModel):
         self.loss_adv = self.BCE(self.netD(self.netG(self.real_feats)), self.ones) * 0.1
         self.loss_feat = self.calc_loss_feat(self.fake_data, self.real_data)
         self.loss_img = self.L2(self.fake_data, self.real_data)
-        self.loss_G = self.loss_adv + self.loss_feat + self.loss_img
+        self.loss_G = self.loss_adv + self.loss_feat*0 + self.loss_img*0
         self.loss_G.backward()
 
     def backward_D(self):
         real_outputs = self.netD(self.real_data)
         fake_outputs = self.netD(self.fake_data.detach())
-        D_real_loss = self.BCE(real_outputs, self.ones)
-        D_fake_loss = self.BCE(fake_outputs, self.zeros)
-        self.loss_D = D_real_loss + D_fake_loss
+        # print(real_outputs.min())
+        # print(fake_outputs.min())
+        # print(real_outputs.max())
+        # print(fake_outputs.max())
+        self.loss_D_real = self.BCE(real_outputs, self.ones)
+        self.loss_D_fake = self.BCE(fake_outputs, self.zeros)
+        self.loss_D = self.loss_D_real + self.loss_D_fake
         self.loss_D.backward()
 
     def optimize_parameters(self, args):
@@ -95,7 +99,8 @@ class VGGInverterModel(BaseModel):
 
     def calc_loss_feat(self, fake_data, real_data):
         loss_feat = 0
-        weights = torch.tensor([2.0, 1.0, 0.5, 0.5, 0.2]).to(self.device)
+        # weights = torch.tensor([2.0, 1.0, 0.5, 0.5, 0.2]).to(self.device)
+        weights = torch.tensor([1.0, 1.0, 1.0, 1.0, 1.0]).to(self.device)
         weights = weights / torch.sum(weights)
         all_feats_real = get_all_VGG_features(real_data, relu=True)
         all_feats_fake = get_all_VGG_features(fake_data, relu=True)
