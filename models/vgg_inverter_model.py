@@ -5,9 +5,9 @@ from .vgg_extractor import get_VGG_features, get_all_VGG_features
 from .net_architectures import VGGInverterG, VGGInverterD, BasicDiscriminator
 
 
-class VGGInverterModel(BaseModel):
+class VggInverterModel(BaseModel):
     @property
-    def name(self): return 'VGGInverterModel'
+    def name(self): return 'VggInverterModel'
 
     @staticmethod
     def modify_commandline_options(parser, is_train=True):

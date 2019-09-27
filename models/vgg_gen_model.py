@@ -1,14 +1,13 @@
 import torch
-import torch.nn as nn
 from .base_model import BaseModel
 from . import networks
 from .vgg_extractor import get_VGG_features, get_all_VGG_features
-from .net_architectures import BasicGenerator, BasicDiscriminator
+from .net_architectures import DeepGenerator, BasicDiscriminator, VGGInverterG
 
 
-class BasicModel(BaseModel):
+class VggGenModel(BaseModel):
     @property
-    def name(self): return 'BasicModel'
+    def name(self): return 'VggGenModel'
 
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
@@ -16,6 +15,7 @@ class BasicModel(BaseModel):
 
     def __init__(self, opt):
         BaseModel.__init__(self, opt)
+        self.vgg_relu = opt.vgg_relu
 
         # specify the training losses you want to print out
         self.loss_names = ['D', 'G']
@@ -25,10 +25,17 @@ class BasicModel(BaseModel):
         # specify the models you want to save to the disk
         if self.isTrain: self.model_names = ['D', 'G']
         else: self.model_names = ['G']
+        # normalization settings
+        self.normalize_data = opt.normalize_data
+        if self.normalize_data:
+            self.data_mean = opt.data_mean
+            self.data_std = opt.data_std
 
         # define networks
-        self.nz = 100
-        self.netG = BasicGenerator().to(self.device)
+        self.nz = 128
+        self.netG = DeepGenerator().to(self.device)
+        self.netInv = VGGInverterG().to(self.device)
+        self.netInv.load_state_dict(torch.load(opt.load_path))
 
         if self.isTrain:
             self.netD = BasicDiscriminator().to(self.device)
@@ -47,6 +54,7 @@ class BasicModel(BaseModel):
     def set_input(self, input):
         self.image_paths = input['A_paths']
         self.real_data = input['A'].to(self.device).detach()
+        self.real_feats = self.get_deep_feats(self.real_data)
 
     def sample_noise(self):
         return torch.randn(self.real_data.size(0), self.nz, device=self.device)
@@ -54,19 +62,19 @@ class BasicModel(BaseModel):
     def forward(self):
         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>"""
         self.noise = self.sample_noise()
-        self.fake_data = self.netG(self.noise)
+        self.fake_feats = self.netG(self.noise)
+        self.fake_data = self.netInv(self.fake_feats)
 
     def backward_G(self):
-        self.noise = self.sample_noise()
-        z_outputs = self.netD(self.netG(self.noise))
+        z_outputs = self.netD(self.fake_feats)
         # self.loss_G = self.BCE(z_outputs, self.ones)
         self.loss_G = -torch.mean(z_outputs)
         self.loss_G.backward()
 
     def backward_D(self):
-        real_outputs = self.netD(self.real_data)
-        fake_outputs = self.netD(self.fake_data)
-        # # Normal loss
+        real_outputs = self.netD(self.real_feats)
+        fake_outputs = self.netD(self.fake_feats)
+        ## Normal loss
         # D_real_loss = self.BCE(real_outputs, self.ones)
         # D_fake_loss = self.BCE(fake_outputs, self.zeros)
         ## Wasserstein loss
@@ -90,3 +98,9 @@ class BasicModel(BaseModel):
         self.backward_G()
         self.G_opt.step()
 
+    def get_deep_feats(self, data):
+        feats = get_VGG_features(data, relu=self.vgg_relu)
+        if self.normalize_data:
+            feats = (feats - self.data_mean) / self.data_std
+            return torch.clamp(feats, -1., 1.)
+        return feats
