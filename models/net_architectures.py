@@ -1,6 +1,15 @@
 import torch
 import torch.nn as nn
 
+class View(nn.Module):
+    def __init__(self, *shape):
+        super(View, self).__init__()
+        self.shape = shape
+
+    def forward(self, input):
+        # print(self.shape, input.shape)
+        return input.view(*self.shape)
+
 class VGGInverterG(nn.Module):
     def __init__(self, nc=3):
         super(VGGInverterG, self).__init__()
