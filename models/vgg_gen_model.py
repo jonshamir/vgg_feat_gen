@@ -37,7 +37,7 @@ class VggGenModel(BaseModel):
         self.nz = opt.nz
         self.netG = DeepGenerator().to(self.device)
         self.netInv = VGGInverterG().to(self.device)
-        self.netInv.load_state_dict(torch.load(opt.load_path))
+        self.netInv.load_state_dict(torch.load(opt.inverter_path))
 
         if self.isTrain:
             self.netD = BasicDiscriminator().to(self.device)
