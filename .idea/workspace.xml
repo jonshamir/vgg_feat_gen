@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bab485a6-287d-4619-ace2-2436fe2f603b" name="Default Changelist" comment="PyCharm Project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/commands.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/basic_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/basic_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/vgg_gen_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/vgg_gen_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/vgg_inverter_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/vgg_inverter_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/options/base_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/options/base_options.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commands.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+            <state relative-caret-position="249">
+              <caret line="11" column="253" selection-start-line="11" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -42,20 +40,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/vgg_gan_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-883">
-              <caret line="76" column="53" lean-forward="true" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/vgg_gen_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="77" column="50" selection-start-line="77" selection-start-column="50" selection-end-line="77" selection-end-column="50" />
+            <state relative-caret-position="287">
+              <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -91,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
-              <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -168,8 +163,8 @@
         <option value="$PROJECT_DIR$/models/vgg_inverter_model.py" />
         <option value="$PROJECT_DIR$/models/basic_model.py" />
         <option value="$PROJECT_DIR$/options/base_options.py" />
-        <option value="$PROJECT_DIR$/models/vgg_gen_model.py" />
         <option value="$PROJECT_DIR$/commands.txt" />
+        <option value="$PROJECT_DIR$/models/vgg_gen_model.py" />
       </list>
     </option>
   </component>
@@ -199,12 +194,13 @@
             <path>
               <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
               <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="pretrained_models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
               <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="options" type="462c0819:PsiDirectoryNode" />
+              <item name="pretrained_models" type="462c0819:PsiDirectoryNode" />
+              <item name="invert_frogs_conv" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
@@ -280,7 +276,7 @@
       <workItem from="1568526658057" duration="1090000" />
       <workItem from="1568620040462" duration="8529000" />
       <workItem from="1569160673025" duration="4516000" />
-      <workItem from="1569310799831" duration="29860000" />
+      <workItem from="1569310799831" duration="30282000" />
     </task>
     <task id="LOCAL-00001" summary="PyCharm Project">
       <created>1567597050758</created>
@@ -300,7 +296,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90174000" />
+    <option name="totallyTimeSpent" value="90596000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="23" width="1400" height="805" extended-state="0" />
@@ -560,30 +556,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/vgg_gan_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-883">
-          <caret line="76" column="53" lean-forward="true" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/vgg_gen_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="77" column="50" selection-start-line="77" selection-start-column="50" selection-end-line="77" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -592,8 +568,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commands.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+        <state relative-caret-position="249">
+          <caret line="11" column="253" selection-start-line="11" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/vgg_gan_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/vgg_gen_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

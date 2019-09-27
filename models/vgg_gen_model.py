@@ -11,6 +11,8 @@ class VggGenModel(BaseModel):
 
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
+        parser.add_argument('--inverter_path', type=str, default='pretrained_models', help='path to saved inverter')
+        parser.add_argument('--nz', type=int, default='128', help='Size of the noise')
         return parser
 
     def __init__(self, opt):
@@ -32,7 +34,7 @@ class VggGenModel(BaseModel):
             self.data_std = opt.data_std
 
         # define networks
-        self.nz = 128
+        self.nz = opt.nz
         self.netG = DeepGenerator().to(self.device)
         self.netInv = VGGInverterG().to(self.device)
         self.netInv.load_state_dict(torch.load(opt.load_path))
