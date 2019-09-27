@@ -75,7 +75,7 @@ class VggGenModel(BaseModel):
 
     def backward_D(self):
         real_outputs = self.netD(self.real_feats)
-        fake_outputs = self.netD(self.fake_feats)
+        fake_outputs = self.netD(self.fake_feats.detach())
         ## Normal loss
         # D_real_loss = self.BCE(real_outputs, self.ones)
         # D_fake_loss = self.BCE(fake_outputs, self.zeros)
