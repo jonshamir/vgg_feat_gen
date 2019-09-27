@@ -2,7 +2,7 @@ import torch
 from .base_model import BaseModel
 from . import networks
 from .vgg_extractor import get_VGG_features, get_all_VGG_features
-from .net_architectures import DeepGenerator, BasicDiscriminator, VGGInverterG
+from .net_architectures import DeepGenerator, DeepDiscriminator, VGGInverterG
 
 
 class VggGenModel(BaseModel):
@@ -40,7 +40,7 @@ class VggGenModel(BaseModel):
         self.netInv.load_state_dict(torch.load(opt.inverter_path))
 
         if self.isTrain:
-            self.netD = BasicDiscriminator().to(self.device)
+            self.netD = DeepDiscriminator(vgg_layer=5, ndf=512).to(self.device)
             # define loss functions
             self.L1 = torch.nn.L1Loss()
             self.L2 = torch.nn.MSELoss()
