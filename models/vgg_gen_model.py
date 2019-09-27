@@ -2,7 +2,7 @@ import torch
 from .base_model import BaseModel
 from . import networks
 from .vgg_extractor import get_VGG_features, get_all_VGG_features
-from .net_architectures import DeepGenerator, DeepDiscriminator, VGGInverterG
+from .net_architectures import DeepGenerator, DeepDiscriminator, VGGInverterG, calc_gradient_penalty
 
 
 class VggGenModel(BaseModel):
@@ -86,6 +86,9 @@ class VggGenModel(BaseModel):
         # D_real_loss = nn.ReLU()(1.0 - real_outputs).mean()
         # D_fake_loss = nn.ReLU()(1.0 + fake_outputs).mean()
         self.loss_D = D_real_loss + D_fake_loss
+        if self.opt.gan_mode == 'wgangp':
+            loss_D += calc_gradient_penalty(self.netD, self.real_feats, self.fake_feats, self.device)
+
         self.loss_D.backward()
 
     def optimize_parameters(self, args):
