@@ -87,7 +87,8 @@ class VggGenModel(BaseModel):
         # D_fake_loss = nn.ReLU()(1.0 + fake_outputs).mean()
         self.loss_D = D_real_loss + D_fake_loss
         if self.opt.gan_mode == 'wgangp':
-            loss_D += calc_gradient_penalty(self.netD, self.real_feats, self.fake_feats, self.device)
+            gp = calc_gradient_penalty(self.netD, self.real_feats, self.fake_feats, self.device)
+            self.loss_D += gp
 
         self.loss_D.backward()
 
