@@ -3,18 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bab485a6-287d-4619-ace2-2436fe2f603b" name="Default Changelist" comment="PyCharm Project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/commands.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/vgg_gen_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/vgg_gen_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/invert_frogs_conv.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/invert_frogs_conv/300_net_D.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/invert_frogs_conv/300_net_G.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/invert_frogs_conv_norm.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/invert_frogs_relu.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/invert_frogs_relu_norm.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/invert_zebras_conv.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/invert_zebras_conv_norm.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/invert_zebras_relu.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/invert_zebras_relu_norm.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/base_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/base_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/invert_zebras_conv/test_latest/images/000000000154_fake_data.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commands.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="23" column="160" selection-start-line="23" selection-end-line="24" />
+            <state relative-caret-position="253">
+              <caret line="11" column="239" selection-start-line="11" selection-start-column="174" selection-end-line="11" selection-end-column="239" />
             </state>
           </provider>
         </entry>
@@ -59,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+            <state relative-caret-position="670">
+              <caret line="33" column="18" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="18" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -71,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/base_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="35" column="21" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="21" />
+            <state relative-caret-position="325">
+              <caret line="95" column="31" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -83,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/vgg_gen_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="109" column="46" selection-start-line="109" selection-start-column="46" selection-end-line="109" selection-end-column="46" />
+            <state relative-caret-position="108">
+              <caret line="27" column="34" lean-forward="true" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -95,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6693">
-              <caret line="291" column="13" selection-start-line="291" selection-start-column="13" selection-end-line="291" selection-end-column="13" />
+            <state relative-caret-position="709">
+              <caret line="218" column="25" selection-start-line="218" selection-start-column="25" selection-end-line="218" selection-end-column="25" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -129,7 +119,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>init_weights</find>
       <find>init</find>
       <find>nz</find>
       <find>inver</find>
@@ -159,6 +148,7 @@
       <find>get_VGG_features</find>
       <find>che</find>
       <find>save_dir</find>
+      <find>eval</find>
     </findStrings>
     <replaceStrings>
       <replace>augmented</replace>
@@ -186,7 +176,6 @@
         <option value="$PROJECT_DIR$/options/test_options.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/util/visualizer.py" />
-        <option value="$PROJECT_DIR$/models/base_model.py" />
         <option value="$PROJECT_DIR$/util/util.py" />
         <option value="$PROJECT_DIR$/models/vgg_inverter_model.py" />
         <option value="$PROJECT_DIR$/models/basic_model.py" />
@@ -194,8 +183,9 @@
         <option value="$PROJECT_DIR$/models/networks.py" />
         <option value="$PROJECT_DIR$/models/vgg_gan_model.py" />
         <option value="$PROJECT_DIR$/models/net_architectures.py" />
-        <option value="$PROJECT_DIR$/models/vgg_gen_model.py" />
         <option value="$PROJECT_DIR$/commands.txt" />
+        <option value="$PROJECT_DIR$/models/vgg_gen_model.py" />
+        <option value="$PROJECT_DIR$/models/base_model.py" />
       </list>
     </option>
   </component>
@@ -225,12 +215,23 @@
             <path>
               <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
               <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
+              <item name="checkpoints" type="462c0819:PsiDirectoryNode" />
+              <item name="invert_frogs_conv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
               <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
               <item name="options" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
+              <item name="pretrained_models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -301,7 +302,7 @@
       <workItem from="1568526658057" duration="1090000" />
       <workItem from="1568620040462" duration="8529000" />
       <workItem from="1569160673025" duration="4516000" />
-      <workItem from="1569310799831" duration="38730000" />
+      <workItem from="1569310799831" duration="39685000" />
     </task>
     <task id="LOCAL-00001" summary="PyCharm Project">
       <created>1567597050758</created>
@@ -321,10 +322,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99044000" />
+    <option name="totallyTimeSpent" value="99999000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="23" width="1400" height="805" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18409425" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -526,16 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6693">
-          <caret line="291" column="13" selection-start-line="291" selection-start-column="13" selection-end-line="291" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/vgg_inverter_model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -563,23 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/vgg_gen_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="109" column="46" selection-start-line="109" selection-start-column="46" selection-end-line="109" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="23" column="160" selection-start-line="23" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/options/test_options.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -594,10 +569,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/commands.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="239" selection-start-line="11" selection-start-column="174" selection-end-line="11" selection-end-column="239" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/vgg_gen_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="27" column="34" lean-forward="true" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="709">
+          <caret line="218" column="25" selection-start-line="218" selection-start-column="25" selection-end-line="218" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        <state relative-caret-position="670">
+          <caret line="33" column="18" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="18" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -606,8 +608,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/base_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="35" column="21" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="21" />
+        <state relative-caret-position="325">
+          <caret line="95" column="31" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
