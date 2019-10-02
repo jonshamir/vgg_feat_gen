@@ -1,7 +1,6 @@
 import torch
 from .base_model import BaseModel
-from . import networks
-from .vgg_extractor import get_VGG_features, get_all_VGG_features
+from .vgg_extractor import get_VGG_features
 from .net_architectures import DeepGenerator, DeepDiscriminator, VGGInverterG, calc_gradient_penalty
 
 
