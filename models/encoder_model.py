@@ -21,7 +21,7 @@ class EncoderModel(BaseModel):
         # specify the training losses you want to print out
         self.loss_names = ['E']
         # specify the images you want to save and display
-        self.visual_names = ['real_data']
+        self.visual_names = ['real_noise_inv', 'fake_noise_inv']
 
         # specify the models you want to save to the disk
         self.model_names = ['G', 'E']
@@ -53,7 +53,9 @@ class EncoderModel(BaseModel):
     def forward(self):
         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>"""
         self.fake_data = self.netG(self.real_noise)
+        self.real_noise_inv = self.netInv(self.fake_data)
         self.fake_noise = self.netE(self.fake_data.detach())
+        self.fake_noise_inv = self.netInv(self.netG(self.fake_noise))
 
     def backward_E(self):
         self.loss_E = self.L1(self.fake_noise, self.real_noise)

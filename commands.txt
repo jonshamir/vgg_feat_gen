@@ -12,7 +12,6 @@ CUDA_VISIBLE_DEVICES=2 python test.py --name gen_frogs_conv --dataroot ./dataset
 Encoder:
 CUDA_VISIBLE_DEVICES=2 python train.py --name encode_frogs_conv --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 32 --load_size 224 --model encoder --gen_path pretrained_models/gen_frogs_conv/modelG.pth --inverter_path pretrained_models/invert_frogs_conv/500_net_G.pth --niter 400 --display_port 8092
 
-
 CUDA_VISIBLE_DEVICES=1 python train.py --name gen_frogs_conv --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 16 --load_size 224 --model vgg_gen --inverter_path pretrained_models/invert_frogs_conv/500_net_G.pth --gan_mode wgangp --niter 400 --display_port 8091
 
 CUDA_VISIBLE_DEVICES=2 python train.py --name invert_zebras_conv --dataroot ./datasets/zebras --dataset_mode augmented --gpu_ids 0 --batch_size 16 --load_size 224 --model vgg_inverter --niter 400 --display_port 8092
