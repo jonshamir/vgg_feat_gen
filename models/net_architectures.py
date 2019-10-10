@@ -307,22 +307,20 @@ class DeepEncoder(nn.Module):
         super(DeepEncoder, self).__init__()
         self.conv = nn.Sequential(
             # 14 -> 14
-            nn.Conv2d(nc, 256, 3, stride=1, padding=1, bias=False),
-            nn.BatchNorm2d(256),
+            nn.Conv2d(nc, 256, 3, stride=1, padding=1),
             nn.LeakyReLU(0.2, True),
             # 14 -> 7
-            nn.Conv2d(256, 128, 3, stride=2, padding=1, bias=False),
-            nn.BatchNorm2d(128),
+            nn.Conv2d(256, 128, 3, stride=2, padding=1),
             nn.LeakyReLU(0.2, True),
             # 7 -> 7
-            nn.Conv2d(128, 64, 3, stride=1, padding=1, bias=False),
-            nn.BatchNorm2d(64),
+            nn.Conv2d(128, 64, 3, stride=1, padding=1),
             nn.LeakyReLU(0.2, True)
         )
 
         self.fc = nn.Sequential(
-            nn.Linear(64 * 7 * 7, 128),
-            View(-1, 128, 1, 1)
+            nn.Linear(64 * 7 * 7, 512),
+            nn.LeakyReLU(0.2, True),
+            nn.Linear(512, 128)
         )
 
     def forward(self, input):

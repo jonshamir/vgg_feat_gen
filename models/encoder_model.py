@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from .base_model import BaseModel
 from . import networks
-from .net_architectures import DeepGenerator, DeepEncoder
+from .net_architectures import DeepGenerator, DeepEncoder, VGGInverterG
 
 
 class EncoderModel(BaseModel):
@@ -31,6 +31,8 @@ class EncoderModel(BaseModel):
         self.netE = DeepEncoder().to(self.device)
         self.netG = DeepGenerator().to(self.device)
         self.netG.load_state_dict(torch.load(opt.gen_path))
+        self.netInv = VGGInverterG().to(self.device)
+        self.netInv.load_state_dict(torch.load(opt.inverter_path))
 
         if self.isTrain:
             # define loss functions
@@ -43,13 +45,13 @@ class EncoderModel(BaseModel):
     def set_input(self, input):
         self.image_paths = input['A_paths']
         self.real_data = input['A'].to(self.device).detach()
+        self.real_noise = self.sample_noise()
 
     def sample_noise(self):
         return torch.randn(32, self.nz, device=self.device)
 
     def forward(self):
         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>"""
-        self.real_noise = self.sample_noise()
         self.fake_data = self.netG(self.real_noise)
         self.fake_noise = self.netE(self.fake_data.detach())
 
