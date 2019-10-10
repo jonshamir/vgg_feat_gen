@@ -15,7 +15,7 @@ class AugmentedDataset(BaseDataset):
         self.transform = transforms.Compose([
             transforms.ColorJitter(0, 0, 0.2, 0.05),
             transforms.RandomHorizontalFlip(),
-            transforms.RandomAffine(5, scale=(0.7,1.1), shear=2),
+            transforms.RandomAffine(5, scale=(0.7,1.1), shear=2, fillcolor=1),
             transforms.Resize(opt.load_size),
             transforms.RandomCrop(opt.load_size),
             transforms.ToTensor(),
