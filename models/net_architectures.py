@@ -301,3 +301,33 @@ def calc_gradient_penalty(netD, real_data, fake_data, device, type='mixed', cons
         return gradient_penalty, gradients
     else:
         return 0.0, None
+
+class DeepEncoder(nn.Module):
+    def __init__(self, nc=512):
+        super(DeepEncoder, self).__init__()
+        self.conv = nn.Sequential(
+            # 14 -> 14
+            nn.Conv2d(nc, 256, 3, stride=1, padding=1, bias=False),
+            nn.BatchNorm2d(256),
+            nn.LeakyReLU(0.2, True),
+            # 14 -> 7
+            nn.Conv2d(256, 128, 3, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(128),
+            nn.LeakyReLU(0.2, True),
+            # 7 -> 7
+            nn.Conv2d(128, 64, 3, stride=1, padding=1, bias=False),
+            nn.BatchNorm2d(64),
+            nn.LeakyReLU(0.2, True)
+        )
+
+        self.fc = nn.Sequential(
+            nn.Linear(64 * 7 * 7, 128),
+            View(-1, 128, 1, 1)
+        )
+
+    def forward(self, input):
+        # input: (N, nc, 224, 224)
+        out = self.conv(input)
+        out = out.view(out.size(0), -1)
+        out = self.fc(out)
+        return out
