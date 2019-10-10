@@ -11,7 +11,8 @@ class EncoderModel(BaseModel):
 
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
-        parser.add_argument('--gen_path', type=str, default='pretrained_models', help='path to saved inverter')
+        parser.add_argument('--gen_path', type=str, default='pretrained_models', help='path to saved G')
+        parser.add_argument('--inverter_path', type=str, default='pretrained_models', help='path to saved inverter')
         parser.add_argument('--nz', type=int, default='128', help='Size of the noise')
         return parser
 
