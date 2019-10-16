@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import math
 
+NUM_CHANNELS = [3, 64, 128, 256, 512, 512]
+
 class View(nn.Module):
     def __init__(self, *shape):
         super(View, self).__init__()
@@ -14,32 +16,31 @@ class View(nn.Module):
 class VGGInverterG(nn.Module):
     def __init__(self, layer=5):
         super(VGGInverterG, self).__init__()
+        nf = NUM_CHANNELS[layer] # number of feature channels
 
         model = [
-            nn.Conv2d(512, 512, 3, stride=1, padding=1),
-            nn.BatchNorm2d(512),
+            nn.Conv2d(nf, nf, 3, stride=1, padding=1),
+            nn.BatchNorm2d(nf),
             nn.LeakyReLU(0.2, True),
-            nn.Conv2d(512, 512, 3, stride=1, padding=1),
-            nn.BatchNorm2d(512),
+            nn.Conv2d(nf, nf, 3, stride=1, padding=1),
+            nn.BatchNorm2d(nf),
             nn.LeakyReLU(0.2, True),
-            nn.Conv2d(512, 512, 3, stride=1, padding=1),
-            nn.BatchNorm2d(512),
+            nn.Conv2d(nf, nf, 3, stride=1, padding=1),
+            nn.BatchNorm2d(nf),
             nn.LeakyReLU(0.2, True)
         ]
 
-        num_feats = 512
-
-        for _ in range(layer-2):
-            num_feats //= 2
+        for _ in range(layer - 2):
+            nf //= 2
 
             model += [
-                nn.ConvTranspose2d(2 * num_feats, num_feats, 4, stride=2, padding=1, bias=False),
-                nn.BatchNorm2d(num_feats),
+                nn.ConvTranspose2d(2 * nf, nf, 4, stride=2, padding=1, bias=False),
+                nn.BatchNorm2d(nf),
                 nn.LeakyReLU(0.2, True)
             ]
 
         model += [
-            nn.ConvTranspose2d(num_feats, 3, 4, stride=2, padding=1, bias=False),
+            nn.ConvTranspose2d(nf, 3, 4, stride=2, padding=1, bias=False),
             nn.Tanh()
         ]
 
