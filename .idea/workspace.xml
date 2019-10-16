@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bab485a6-287d-4619-ace2-2436fe2f603b" name="Default Changelist" comment="PyCharm Project">
-      <change beforePath="$PROJECT_DIR$/commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/commands.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/net_architectures.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/net_architectures.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="463">
-              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -268,7 +267,7 @@
       <workItem from="1570660437495" duration="134000" />
       <workItem from="1570690939779" duration="383000" />
       <workItem from="1570693453430" duration="8758000" />
-      <workItem from="1570896000038" duration="2910000" />
+      <workItem from="1570896000038" duration="3032000" />
     </task>
     <task id="LOCAL-00001" summary="PyCharm Project">
       <created>1567597050758</created>
@@ -288,7 +287,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113827000" />
+    <option name="totallyTimeSpent" value="113949000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="23" width="1400" height="805" extended-state="0" />
@@ -562,7 +561,7 @@
     <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>

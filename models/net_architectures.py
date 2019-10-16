@@ -30,8 +30,7 @@ class VGGInverterG(nn.Module):
         num_feats = 512
 
         for _ in range(layer-2):
-            num_feats /= 2
-            print (num_feats)
+            num_feats //= 2
 
             model += [
                 nn.ConvTranspose2d(2 * num_feats, num_feats, 4, stride=2, padding=1, bias=False),
