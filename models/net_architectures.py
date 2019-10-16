@@ -41,7 +41,7 @@ class VGGInverterG(nn.Module):
         if (layer > 1):
             model += [nn.ConvTranspose2d(nf, 3, 4, stride=2, padding=1, bias=False)]
         else:
-            model += [nn.ConvTranspose2d(nf, 3, 4, stride=1, padding=0, bias=False)]
+            model += [nn.Conv2d(nf, nf, 3, stride=1, padding=1)]
         model += [nn.Tanh()]
 
         self.conv = nn.Sequential(*model)
