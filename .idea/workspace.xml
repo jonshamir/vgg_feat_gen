@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bab485a6-287d-4619-ace2-2436fe2f603b" name="Default Changelist" comment="PyCharm Project">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkpoints/gen_frogs_conv/950_net_D.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkpoints/gen_frogs_conv/950_net_G.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/gen_frogs_conv/modelD.pth" beforeDir="false" afterPath="$PROJECT_DIR$/pretrained_models/gen_frogs_conv/modelD.pth" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/gen_frogs_conv/modelG.pth" beforeDir="false" afterPath="$PROJECT_DIR$/pretrained_models/gen_frogs_conv/modelG.pth" afterDir="false" />
-    </list>
+    <list default="true" id="bab485a6-287d-4619-ace2-2436fe2f603b" name="Default Changelist" comment="PyCharm Project" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,12 +191,6 @@
               <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
               <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
               <item name="checkpoints" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="checkpoints" type="462c0819:PsiDirectoryNode" />
-              <item name="invert_frogs_conv" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
