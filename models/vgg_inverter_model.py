@@ -34,7 +34,7 @@ class VggInverterModel(BaseModel):
             self.data_std = opt.data_std
 
         # define networks
-        self.netG = VGGInverterG(opt.feat_layer).to(self.device)
+        self.netG = VGGInverterG(layer=opt.feat_layer).to(self.device)
 
         if self.isTrain:
             self.netD = BasicDiscriminator().to(self.device)
@@ -58,6 +58,7 @@ class VggInverterModel(BaseModel):
     def forward(self):
         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>"""
         self.fake_data = self.netG(self.real_feats)
+        print(fake_data.shape)
         if self.isTrain:
             self.fake_feats = self.get_deep_feats(self.fake_data)
 

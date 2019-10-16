@@ -12,11 +12,13 @@ class VggGenModel(BaseModel):
     def modify_commandline_options(parser, is_train=True):
         parser.add_argument('--inverter_path', type=str, default='pretrained_models', help='path to saved inverter')
         parser.add_argument('--nz', type=int, default='128', help='Size of the noise')
+        parser.add_argument('--feat_layer', type=int, default='5', help='VGG layer to get features from')
         return parser
 
     def __init__(self, opt):
         BaseModel.__init__(self, opt)
         self.vgg_relu = opt.vgg_relu
+        self.feat_layer = opt.feat_layer
 
         # specify the training losses you want to print out
         self.loss_names = ['D', 'G']
@@ -34,12 +36,12 @@ class VggGenModel(BaseModel):
 
         # define networks
         self.nz = opt.nz
-        self.netG = DeepGenerator().to(self.device)
-        self.netInv = VGGInverterG().to(self.device)
+        self.netG = DeepGenerator(layer=opt.feat_layer).to(self.device)
+        self.netInv = VGGInverterG(layer=opt.feat_layer).to(self.device)
         self.netInv.load_state_dict(torch.load(opt.inverter_path))
 
         if self.isTrain:
-            self.netD = DeepDiscriminator(vgg_layer=5, ndf=512).to(self.device)
+            self.netD = DeepDiscriminator(vgg_layer=opt.feat_layer, ndf=512).to(self.device)
             # define loss functions
             self.L1 = torch.nn.L1Loss()
             self.L2 = torch.nn.MSELoss()

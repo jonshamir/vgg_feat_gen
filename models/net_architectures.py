@@ -17,8 +17,7 @@ class VGGInverterG(nn.Module):
     def __init__(self, layer=5):
         super(VGGInverterG, self).__init__()
         nf = NUM_CHANNELS[layer] # number of feature channels
-        print (nf)
-        print ("================")
+
         model = [
             nn.Conv2d(nf, nf, 3, stride=1, padding=1),
             nn.BatchNorm2d(nf),
@@ -33,7 +32,6 @@ class VGGInverterG(nn.Module):
 
         for _ in range(layer - 2):
             nf //= 2
-
             model += [
                 nn.ConvTranspose2d(2 * nf, nf, 4, stride=2, padding=1, bias=False),
                 nn.BatchNorm2d(nf),
@@ -178,44 +176,67 @@ class BasicDiscriminator(nn.Module):
 
 class DeepGenerator(nn.Module):
     # initializers
-    def __init__(self, d=128):
+    def __init__(self, nz=128, layer=5):
         super(DeepGenerator, self).__init__()
+        nf = NUM_CHANNELS[layer] # number of feature channels
+
         self.fc = nn.Sequential(
             View(-1, 128),
             nn.Linear(128, 128),
             View(-1, 128, 1, 1)
         )
 
+        model = [
+            nn.Conv2d(nz, nz, 3, 1, 1),
+            nn.BatchNorm2d(nz),
+            nn.LeakyReLU(0.2)
+        ]
+
+        for _ in range(layer):
+            nz *= 2
+            model += [
+                nn.Upsample(scale_factor=2),
+                nn.Conv2d(nz // 2, nz, 3, 1, 1),
+                nn.BatchNorm2d(nz),
+                nn.LeakyReLU(0.2),
+            ]
+
+        model += [
+            nn.Conv2d(nz, nf, 3, 1, 0)
+        ]
+        self.conv = nn.Sequential(*model)
+
+
         self.conv = nn.Sequential(
-            nn.Conv2d(128, d, 3, 1, 1),
-            nn.BatchNorm2d(d),
+            nn.Conv2d(128, nz, 3, 1, 1),
+            nn.BatchNorm2d(nz),
             nn.LeakyReLU(0.2),
 
             nn.Upsample(scale_factor=2),
-            nn.Conv2d(d, 2*d, 3, 1, 1),
-            nn.BatchNorm2d(2*d),
+            nn.Conv2d(nz, 2 * nz, 3, 1, 1),
+            nn.BatchNorm2d(2 * nz),
             nn.LeakyReLU(0.2),
 
             nn.Upsample(scale_factor=2),
-            nn.Conv2d(2*d, 4*d, 3, 1, 1),
-            nn.BatchNorm2d(4*d),
+            nn.Conv2d(2 * nz, 4 * nz, 3, 1, 1),
+            nn.BatchNorm2d(4 * nz),
             nn.LeakyReLU(0.2),
 
             nn.Upsample(scale_factor=2),
-            nn.Conv2d(4*d, 4*d, 3, 1, 1),
-            nn.BatchNorm2d(4*d),
+            nn.Conv2d(4 * nz, 4 * nz, 3, 1, 1),
+            nn.BatchNorm2d(4 * nz),
             nn.LeakyReLU(0.2),
 
             nn.Upsample(scale_factor=2),
-            nn.Conv2d(4*d, 4*d, 3, 1, 1),
-            nn.BatchNorm2d(4*d),
+            nn.Conv2d(4 * nz, 4 * nz, 3, 1, 1),
+            nn.BatchNorm2d(4 * nz),
             nn.LeakyReLU(0.2),
 
-            nn.Conv2d(4*d, 8*d, 3, 1, 1),
-            nn.BatchNorm2d(8*d),
+            nn.Conv2d(4 * nz, 8 * nz, 3, 1, 1),
+            nn.BatchNorm2d(8 * nz),
             nn.LeakyReLU(0.2),
 
-            nn.Conv2d(8*d, 512, 3, 1, 0)
+            nn.Conv2d(8 * nz, 512, 3, 1, 0)
         )
         self.relu = nn.ReLU()
 
