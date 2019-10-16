@@ -1,6 +1,6 @@
 
 Inverter training:
-CUDA_VISIBLE_DEVICES=2 python train.py --name invert_frogs_relu --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 32 --load_size 224 --model vgg_inverter --vgg_relu True --normalize_data False --niter 400 --display_port 8099
+CUDA_VISIBLE_DEVICES=0 python train.py --name invert_frogs_conv4 --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 32 --load_size 224 --model vgg_inverter --feat_layer 4 --niter 500 --display_port 8090
 
 Deep generator training:
 CUDA_VISIBLE_DEVICES=1 python train.py --name gen_frogs_conv_norm --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 16 --load_size 224 --netG advanced --netD student --gan_mode wgangp --niter 1000 --normalize_data True --inverter_path pretrained_models/invert_frogs_conv_norm.pth --display_port 8098
