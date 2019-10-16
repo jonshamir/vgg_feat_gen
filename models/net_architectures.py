@@ -38,10 +38,11 @@ class VGGInverterG(nn.Module):
                 nn.LeakyReLU(0.2, True)
             ]
 
-        model += [
-            nn.ConvTranspose2d(nf, 3, 4, stride=2, padding=1, bias=False),
-            nn.Tanh()
-        ]
+        if (layer > 1):
+            model += [nn.ConvTranspose2d(nf, 3, 4, stride=2, padding=1, bias=False)]
+        else:
+            model += [nn.ConvTranspose2d(nf, 3, 4, stride=1, padding=1, bias=False)]
+        model += [nn.Tanh()]
 
         self.conv = nn.Sequential(*model)
 
