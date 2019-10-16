@@ -12,10 +12,10 @@ class View(nn.Module):
         return input.view(*self.shape)
 
 class VGGInverterG(nn.Module):
-    def __init__(self, nc=3):
+    def __init__(self, layer=5):
         super(VGGInverterG, self).__init__()
-        self.conv = nn.Sequential(
-            # 14 -> 14
+
+        model = [
             nn.Conv2d(512, 512, 3, stride=1, padding=1),
             nn.BatchNorm2d(512),
             nn.LeakyReLU(0.2, True),
@@ -24,23 +24,26 @@ class VGGInverterG(nn.Module):
             nn.LeakyReLU(0.2, True),
             nn.Conv2d(512, 512, 3, stride=1, padding=1),
             nn.BatchNorm2d(512),
-            nn.LeakyReLU(0.2, True),
-            # 14 -> 28
-            nn.ConvTranspose2d(512, 256, 4, stride=2, padding=1, bias=False),
-            nn.BatchNorm2d(256),
-            nn.LeakyReLU(0.2, True),
-            # 28 -> 56
-            nn.ConvTranspose2d(256, 128, 4, stride=2, padding=1, bias=False),
-            nn.BatchNorm2d(128),
-            nn.LeakyReLU(0.2, True),
-            # 56 -> 112
-            nn.ConvTranspose2d(128, 64, 4, stride=2, padding=1, bias=False),
-            nn.BatchNorm2d(64),
-            nn.LeakyReLU(0.2, True),
-            # 112 -> 224
-            nn.ConvTranspose2d(64, nc, 4, stride=2, padding=1, bias=False),
-            nn.Tanh(),
-        )
+            nn.LeakyReLU(0.2, True)
+        ]
+
+        num_feats = 512
+
+        for _ in range(layer-2):
+            num_feats /= 2
+
+            model += [
+                nn.ConvTranspose2d(2 * num_feats, num_feats, 4, stride=2, padding=1, bias=False),
+                nn.BatchNorm2d(num_feats),
+                nn.LeakyReLU(0.2, True)
+            ]
+
+        model += [
+            nn.ConvTranspose2d(num_feats, 3, 4, stride=2, padding=1, bias=False),
+            nn.Tanh()
+        ]
+
+        self.conv = nn.Sequential(*model)
 
     def forward(self, input):
         # input: (N, 100)

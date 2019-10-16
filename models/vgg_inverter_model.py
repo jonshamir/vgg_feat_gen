@@ -11,15 +11,16 @@ class VggInverterModel(BaseModel):
 
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
+        parser.add_argument('--feat_layer', type=int, default='5', help='VGG layer to get features from')
         return parser
 
     def __init__(self, opt):
         BaseModel.__init__(self, opt)
         self.vgg_relu = opt.vgg_relu
+        self.feat_layer = opt.feat_layer
 
         # specify the training losses you want to print out
         self.loss_names = ['D', 'G', 'adv', 'feat', 'img']
-        # self.loss_names = ['D', 'G', 'D_real', 'D_fake']
         # specify the images you want to save and display
         self.visual_names = ['real_data', 'fake_data']
 
@@ -88,7 +89,7 @@ class VggInverterModel(BaseModel):
         self.G_opt.step()
 
     def get_deep_feats(self, data):
-        feats = get_VGG_features(data, relu=self.vgg_relu)
+        feats = get_VGG_features(data, relu=self.vgg_relu, layer=self.feat_layer)
         if self.normalize_data:
             feats = (feats - self.data_mean) / self.data_std
             return torch.clamp(feats, -1., 1.)
