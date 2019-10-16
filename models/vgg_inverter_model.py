@@ -58,7 +58,6 @@ class VggInverterModel(BaseModel):
     def forward(self):
         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>"""
         self.fake_data = self.netG(self.real_feats)
-        print(self.fake_data.shape)
         if self.isTrain:
             self.fake_feats = self.get_deep_feats(self.fake_data)
 
