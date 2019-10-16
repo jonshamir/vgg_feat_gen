@@ -17,7 +17,8 @@ class VGGInverterG(nn.Module):
     def __init__(self, layer=5):
         super(VGGInverterG, self).__init__()
         nf = NUM_CHANNELS[layer] # number of feature channels
-
+        print (nf)
+        print ("================")
         model = [
             nn.Conv2d(nf, nf, 3, stride=1, padding=1),
             nn.BatchNorm2d(nf),
