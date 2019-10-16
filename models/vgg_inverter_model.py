@@ -34,7 +34,7 @@ class VggInverterModel(BaseModel):
             self.data_std = opt.data_std
 
         # define networks
-        self.netG = VGGInverterG().to(self.device)
+        self.netG = VGGInverterG(opt.feat_layer).to(self.device)
 
         if self.isTrain:
             self.netD = BasicDiscriminator().to(self.device)
