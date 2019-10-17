@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import math
 
-NUM_CHANNELS = [3, 64, 128, 256, 512, 512]
+VGG_NUM_CHANNELS = [3, 64, 128, 256, 512, 512]
 
 class View(nn.Module):
     def __init__(self, *shape):
@@ -16,7 +16,7 @@ class View(nn.Module):
 class VGGInverterG(nn.Module):
     def __init__(self, layer=5):
         super(VGGInverterG, self).__init__()
-        nf = NUM_CHANNELS[layer] # number of feature channels
+        nf = VGG_NUM_CHANNELS[layer] # number of feature channels
 
         model = [
             nn.Conv2d(nf, nf, 3, stride=1, padding=1),
@@ -179,7 +179,7 @@ class DeepGenerator(nn.Module):
     # initializers
     def __init__(self, nz=128, layer=5):
         super(DeepGenerator, self).__init__()
-        final_nf = NUM_CHANNELS[layer] # number of feature channels
+        final_nf = VGG_NUM_CHANNELS[layer] # number of feature channels
         nf = nz
 
         self.fc = nn.Sequential(
@@ -251,14 +251,12 @@ class DeepGenerator(nn.Module):
 
 class DeepDiscriminator(nn.Module):
     # initializers
-    def __init__(self, vgg_layer=5, ndf=128):
+    def __init__(self, layer=5, ndf=128):
         super(DeepDiscriminator, self).__init__()
-        gen_all_ch = [3, 64, 128, 256, 512, 512]
-        gen_ch = gen_all_ch[vgg_layer]
-        feature_size = 224 // (2 ** (vgg_layer - 1))
+        gen_ch = VGG_NUM_CHANNELS[layer]
+        feature_size = 224 // (2 ** (layer - 1))
         num_layers = math.ceil(math.sqrt(feature_size))
         num_strided_layers = num_layers - 2
-        use_bias = True
 
         model = []
 
@@ -271,17 +269,15 @@ class DeepDiscriminator(nn.Module):
             in_ch = out_ch
             out_ch = min(in_ch * 2, 512)
             stride = 2 if ((i % 2) == 0) else 1
-            model += [nn.Conv2d(in_ch, out_ch, kernel_size=3, stride=stride, padding=1, bias=use_bias)]
-            # model += [norm_layer(out_ch)]
+            model += [nn.Conv2d(in_ch, out_ch, kernel_size=3, stride=stride, padding=1)]
             model += [nn.LeakyReLU(0.2, True)]
 
         for i in range(num_layers):
             in_ch = out_ch
             out_ch = max(in_ch // 2, 128)
-            model += [nn.Conv2d(in_ch, out_ch , kernel_size=3, stride=1, padding=1, bias=use_bias)]
+            model += [nn.Conv2d(in_ch, out_ch , kernel_size=3, stride=1, padding=1)]
             model += [nn.LeakyReLU(0.2, True)]
-            model += [nn.Conv2d(out_ch, out_ch , kernel_size=3, stride=1, padding=1, bias=use_bias)]
-            # model += [norm_layer(out_ch)]
+            model += [nn.Conv2d(out_ch, out_ch , kernel_size=3, stride=1, padding=1)]
             model += [nn.LeakyReLU(0.2, True)]
 
         self.layer_size = 4 * 4 * out_ch

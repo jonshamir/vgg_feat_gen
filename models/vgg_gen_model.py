@@ -41,7 +41,7 @@ class VggGenModel(BaseModel):
         self.netInv.load_state_dict(torch.load(opt.inverter_path))
 
         if self.isTrain:
-            self.netD = DeepDiscriminator(vgg_layer=opt.feat_layer, ndf=512).to(self.device)
+            self.netD = DeepDiscriminator(layer=opt.feat_layer, ndf=512).to(self.device)
             # define loss functions
             self.L1 = torch.nn.L1Loss()
             self.L2 = torch.nn.MSELoss()
@@ -67,6 +67,8 @@ class VggGenModel(BaseModel):
         self.noise = self.sample_noise()
         self.fake_feats = self.netG(self.noise)
         self.fake_data = self.netInv(self.fake_feats)
+        print (self.real_feats.shape)
+        print (self.fake_feats.shape)
 
     def backward_G(self):
         z_outputs = self.netD(self.fake_feats)
