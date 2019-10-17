@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bab485a6-287d-4619-ace2-2436fe2f603b" name="Default Changelist" comment="PyCharm Project">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/augmented_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/augmented_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/net_architectures.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/net_architectures.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +63,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3446">
-              <caret line="181" column="10" selection-start-line="181" selection-start-column="8" selection-end-line="181" selection-end-column="10" />
+            <state relative-caret-position="666">
+              <caret line="220" column="37" lean-forward="true" selection-start-line="220" selection-start-column="37" selection-end-line="220" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/augmented_dataset.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -115,6 +128,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/models/basic_model.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/models/net_architectures.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/models/networks.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/models/vgg_inverter_model.py" root0="SKIP_INSPECTION" />
   </component>
@@ -136,13 +150,13 @@
         <option value="$PROJECT_DIR$/models/networks.py" />
         <option value="$PROJECT_DIR$/models/vgg_gan_model.py" />
         <option value="$PROJECT_DIR$/models/base_model.py" />
-        <option value="$PROJECT_DIR$/data/augmented_dataset.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/models/encoder_model.py" />
         <option value="$PROJECT_DIR$/commands.txt" />
         <option value="$PROJECT_DIR$/models/vgg_gen_model.py" />
-        <option value="$PROJECT_DIR$/models/net_architectures.py" />
         <option value="$PROJECT_DIR$/models/vgg_inverter_model.py" />
+        <option value="$PROJECT_DIR$/models/net_architectures.py" />
+        <option value="$PROJECT_DIR$/data/augmented_dataset.py" />
       </list>
     </option>
   </component>
@@ -270,7 +284,7 @@
       <workItem from="1570660437495" duration="134000" />
       <workItem from="1570690939779" duration="383000" />
       <workItem from="1570693453430" duration="8758000" />
-      <workItem from="1570896000038" duration="8312000" />
+      <workItem from="1570896000038" duration="9442000" />
     </task>
     <task id="LOCAL-00001" summary="PyCharm Project">
       <created>1567597050758</created>
@@ -290,7 +304,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119229000" />
+    <option name="totallyTimeSpent" value="120359000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="23" width="1400" height="805" extended-state="0" />
@@ -463,16 +477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/augmented_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/features_extractor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -564,10 +568,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/augmented_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3446">
-          <caret line="181" column="10" selection-start-line="181" selection-start-column="8" selection-end-line="181" selection-end-column="10" />
+        <state relative-caret-position="666">
+          <caret line="220" column="37" lean-forward="true" selection-start-line="220" selection-start-column="37" selection-end-line="220" selection-end-column="37" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>

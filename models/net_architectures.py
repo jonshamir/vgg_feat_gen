@@ -179,67 +179,69 @@ class DeepGenerator(nn.Module):
     # initializers
     def __init__(self, nz=128, layer=5):
         super(DeepGenerator, self).__init__()
-        nf = NUM_CHANNELS[layer] # number of feature channels
+        final_nf = NUM_CHANNELS[layer] # number of feature channels
+        nf = nz
 
         self.fc = nn.Sequential(
-            View(-1, 128),
-            nn.Linear(128, 128),
-            View(-1, 128, 1, 1)
+            View(-1, nz),
+            nn.Linear(nz, nf),
+            View(-1, nf, 1, 1)
         )
 
         model = [
-            nn.Conv2d(nz, nz, 3, 1, 1),
-            nn.BatchNorm2d(nz),
+            nn.Conv2d(nf, nf, 3, 1, 1),
+            nn.BatchNorm2d(nf),
             nn.LeakyReLU(0.2)
         ]
 
-        for _ in range(layer):
-            nz *= 2
+        for i in range(5):
+            if i < layer - 1:
+                model += [nn.Upsample(scale_factor=2)]
+            if i < 3:
+                nf *= 2
+                model += [nn.Conv2d(nf // 2, nf, 3, 1, 1)]
+            else:
+                model += [nn.Conv2d(nf, nf, 3, 1, 1)]
+
             model += [
-                nn.Upsample(scale_factor=2),
-                nn.Conv2d(nz // 2, nz, 3, 1, 1),
-                nn.BatchNorm2d(nz),
-                nn.LeakyReLU(0.2),
+                nn.BatchNorm2d(nf),
+                nn.LeakyReLU(0.2)
             ]
 
-        model += [
-            nn.Conv2d(nz, nf, 3, 1, 0)
-        ]
+        model += [nn.Conv2d(nf, final_nf, 3, 1, 0)]
         self.conv = nn.Sequential(*model)
 
-
-        self.conv = nn.Sequential(
-            nn.Conv2d(128, nz, 3, 1, 1),
-            nn.BatchNorm2d(nz),
-            nn.LeakyReLU(0.2),
-
-            nn.Upsample(scale_factor=2),
-            nn.Conv2d(nz, 2 * nz, 3, 1, 1),
-            nn.BatchNorm2d(2 * nz),
-            nn.LeakyReLU(0.2),
-
-            nn.Upsample(scale_factor=2),
-            nn.Conv2d(2 * nz, 4 * nz, 3, 1, 1),
-            nn.BatchNorm2d(4 * nz),
-            nn.LeakyReLU(0.2),
-
-            nn.Upsample(scale_factor=2),
-            nn.Conv2d(4 * nz, 4 * nz, 3, 1, 1),
-            nn.BatchNorm2d(4 * nz),
-            nn.LeakyReLU(0.2),
-
-            nn.Upsample(scale_factor=2),
-            nn.Conv2d(4 * nz, 4 * nz, 3, 1, 1),
-            nn.BatchNorm2d(4 * nz),
-            nn.LeakyReLU(0.2),
-
-            nn.Conv2d(4 * nz, 8 * nz, 3, 1, 1),
-            nn.BatchNorm2d(8 * nz),
-            nn.LeakyReLU(0.2),
-
-            nn.Conv2d(8 * nz, 512, 3, 1, 0)
-        )
-        self.relu = nn.ReLU()
+        # self.conv = nn.Sequential(
+        #     nn.Conv2d(128, nz, 3, 1, 1),
+        #     nn.BatchNorm2d(nz),
+        #     nn.LeakyReLU(0.2),
+        #
+        #     nn.Upsample(scale_factor=2),
+        #     nn.Conv2d(nz, 2 * nz, 3, 1, 1),
+        #     nn.BatchNorm2d(2 * nz),
+        #     nn.LeakyReLU(0.2),
+        #
+        #     nn.Upsample(scale_factor=2),
+        #     nn.Conv2d(2 * nz, 4 * nz, 3, 1, 1),
+        #     nn.BatchNorm2d(4 * nz),
+        #     nn.LeakyReLU(0.2),
+        #
+        #     nn.Upsample(scale_factor=2),
+        #     nn.Conv2d(4 * nz, 4 * nz, 3, 1, 1),
+        #     nn.BatchNorm2d(4 * nz),
+        #     nn.LeakyReLU(0.2),
+        #
+        #     nn.Upsample(scale_factor=2),
+        #     nn.Conv2d(4 * nz, 4 * nz, 3, 1, 1),
+        #     nn.BatchNorm2d(4 * nz),
+        #     nn.LeakyReLU(0.2),
+        #
+        #     nn.Conv2d(4 * nz, 8 * nz, 3, 1, 1),
+        #     nn.BatchNorm2d(8 * nz),
+        #     nn.LeakyReLU(0.2),
+        #
+        #     nn.Conv2d(8 * nz, 512, 3, 1, 0)
+        # )
 
     def forward(self, input):
         out = self.fc(input)
