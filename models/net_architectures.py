@@ -181,6 +181,7 @@ class DeepGenerator(nn.Module):
         super(DeepGenerator, self).__init__()
         final_nf = VGG_NUM_CHANNELS[layer] # number of feature channels
         nf = nz
+        num_layers = 8
 
         self.fc = nn.Sequential(
             View(-1, nz),
@@ -188,16 +189,12 @@ class DeepGenerator(nn.Module):
             View(-1, nf, 1, 1)
         )
 
-        model = [
-            nn.Conv2d(nf, nf, 3, 1, 1),
-            nn.BatchNorm2d(nf),
-            nn.LeakyReLU(0.2)
-        ]
+        model = []
 
-        for i in range(5):
-            if i < layer - 1:
+        for i in range(num_layers):
+            if i < num_layers - layer:
                 model += [nn.Upsample(scale_factor=2)]
-            if i > 1:
+            if i > num_layers - 4:
                 nf *= 2
                 model += [nn.Conv2d(nf // 2, nf, 3, 1, 1)]
             else:
