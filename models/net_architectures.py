@@ -221,7 +221,7 @@ class DeepDiscriminator(nn.Module):
     def __init__(self, layer=5, ndf=128):
         super(DeepDiscriminator, self).__init__()
         gen_ch = VGG_NUM_CHANNELS[layer]
-        num_layers = 10
+        num_layers = 8
         num_strided_layers = 7 - layer
 
         model = []
