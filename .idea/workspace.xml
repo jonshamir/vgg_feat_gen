@@ -62,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="235" column="35" selection-start-line="235" selection-start-column="34" selection-end-line="235" selection-end-column="35" />
+            <state relative-caret-position="3446">
+              <caret line="181" column="10" selection-start-line="181" selection-start-column="8" selection-end-line="181" selection-end-column="10" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -270,7 +270,7 @@
       <workItem from="1570660437495" duration="134000" />
       <workItem from="1570690939779" duration="383000" />
       <workItem from="1570693453430" duration="8758000" />
-      <workItem from="1570896000038" duration="7888000" />
+      <workItem from="1570896000038" duration="8312000" />
     </task>
     <task id="LOCAL-00001" summary="PyCharm Project">
       <created>1567597050758</created>
@@ -290,7 +290,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118805000" />
+    <option name="totallyTimeSpent" value="119229000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="23" width="1400" height="805" extended-state="0" />
@@ -566,8 +566,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="235" column="35" selection-start-line="235" selection-start-column="34" selection-end-line="235" selection-end-column="35" />
+        <state relative-caret-position="3446">
+          <caret line="181" column="10" selection-start-line="181" selection-start-column="8" selection-end-line="181" selection-end-column="10" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
