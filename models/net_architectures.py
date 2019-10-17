@@ -194,7 +194,9 @@ class DeepGenerator(nn.Module):
         for i in range(num_layers):
             if i < num_layers - layer + 1:
                 model += [nn.Upsample(scale_factor=2)]
-            if i > num_layers - 4:
+            if i == 3: # when spatial dimention is 16 make it 14 to fit with VGG sizes
+                model += [nn.Conv2d(nf, nf, 3, 1, 0)]
+            elif i > num_layers - 4:
                 nf *= 2
                 model += [nn.Conv2d(nf // 2, nf, 3, 1, 1)]
             else:
@@ -205,7 +207,7 @@ class DeepGenerator(nn.Module):
                 nn.LeakyReLU(0.2)
             ]
 
-        model += [nn.Conv2d(nf, final_nf, 3, 1, 0)]
+        model += [nn.Conv2d(nf, final_nf, 3, 1, 1)]
         self.conv = nn.Sequential(*model)
 
         # self.conv = nn.Sequential(
