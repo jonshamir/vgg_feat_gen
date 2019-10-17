@@ -192,7 +192,7 @@ class DeepGenerator(nn.Module):
         model = []
 
         for i in range(num_layers):
-            if i < num_layers - layer:
+            if i < num_layers - layer + 1:
                 model += [nn.Upsample(scale_factor=2)]
             if i > num_layers - 4:
                 nf *= 2
