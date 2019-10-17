@@ -208,7 +208,7 @@ class DeepGenerator(nn.Module):
                 nn.LeakyReLU(0.2)
             ]
 
-        model += [nn.Conv2d(nf, final_nf, 3, 1, 1)]
+        model += [nn.Conv2d(nf, final_nf, 3, 1, 0)]
         self.conv = nn.Sequential(*model)
 
         # self.conv = nn.Sequential(
