@@ -179,7 +179,7 @@ class DeepGenerator(nn.Module):
     # initializers
     def __init__(self, nz=128, layer=5):
         super(DeepGenerator, self).__init__()
-        final_nf = VGG_NUM_CHANNELS[layer] # number of feature channels
+        final_nf = int(VGG_NUM_CHANNELS[layer]) # number of feature channels
         nf = nz
 
         self.fc = nn.Sequential(
