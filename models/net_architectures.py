@@ -234,7 +234,7 @@ class DeepDiscriminator(nn.Module):
         for i in range(num_strided_layers):
             in_ch = out_ch
             out_ch = min(in_ch * 2, 512)
-            model += [nn.Conv2d(in_ch, out_ch, kernel_size=3, stride=stride, padding=1)]
+            model += [nn.Conv2d(in_ch, out_ch, kernel_size=3, stride=2, padding=1)]
             model += [nn.LeakyReLU(0.2, True)]
 
         for i in range(num_layers):
