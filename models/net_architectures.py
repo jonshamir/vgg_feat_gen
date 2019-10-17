@@ -179,7 +179,7 @@ class DeepGenerator(nn.Module):
     # initializers
     def __init__(self, nz=128, layer=5):
         super(DeepGenerator, self).__init__()
-        final_nf = int(VGG_NUM_CHANNELS[layer]) # number of feature channels
+        final_nf = VGG_NUM_CHANNELS[layer] # number of feature channels
         nf = nz
 
         self.fc = nn.Sequential(
@@ -208,7 +208,7 @@ class DeepGenerator(nn.Module):
                 nn.LeakyReLU(0.2)
             ]
 
-        model += [nn.Conv2d(nf, final_nf, 3, 1, 0)]
+        model += [nn.Conv2d(nf, final_nf, 3, 1, 1)]
         self.conv = nn.Sequential(*model)
 
         # self.conv = nn.Sequential(
