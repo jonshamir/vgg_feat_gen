@@ -67,8 +67,6 @@ class VggGenModel(BaseModel):
         self.noise = self.sample_noise()
         self.fake_feats = self.netG(self.noise)
         self.fake_data = self.netInv(self.fake_feats)
-        print(self.real_feats.shape)
-        print(self.fake_feats.shape)
 
     def backward_G(self):
         z_outputs = self.netD(self.fake_feats)
