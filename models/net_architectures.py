@@ -221,7 +221,7 @@ class DeepDiscriminator(nn.Module):
     def __init__(self, layer=5, ndf=128):
         super(DeepDiscriminator, self).__init__()
         gen_ch = VGG_NUM_CHANNELS[layer]
-        feature_size = 224 // (2 ** (layer - 1))
+        feature_size = 224 // (2**4)
         num_layers = math.ceil(math.sqrt(feature_size))
         num_strided_layers = num_layers - 2
 
@@ -247,13 +247,14 @@ class DeepDiscriminator(nn.Module):
             model += [nn.Conv2d(out_ch, out_ch , kernel_size=3, stride=1, padding=1)]
             model += [nn.LeakyReLU(0.2, True)]
 
+        self.model = nn.Sequential(*model)
+
         self.layer_size = 4 * 4 * out_ch
 
-        self.model = nn.Sequential(*model)
-        fc = [nn.Linear(self.layer_size, ndf)]
-        fc += [nn.Linear(ndf, 1)]
-
-        self.fc = nn.Sequential(*fc)
+        self.fc = nn.Sequential(
+            nn.Linear(self.layer_size, ndf),
+            nn.Linear(ndf, 1)
+        )
 
     # forward method
     def forward(self, input):
