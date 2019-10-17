@@ -3,7 +3,7 @@ Inverter training:
 CUDA_VISIBLE_DEVICES=3 python train.py --name invert_frogs_conv2 --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 16 --load_size 224 --model vgg_inverter --feat_layer 2 --niter 500 --display_port 8093
 
 Deep generator training:
-CUDA_VISIBLE_DEVICES=2 python train.py --name gen_frogs_conv3 --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 16 --load_size 224 --model vgg_gen --feat_layer 3 --inverter_path pretrained_models/frogs_conv3/modelInv.pth --gan_mode wgangp --niter 800 --display_port 8092
+CUDA_VISIBLE_DEVICES=0 python train.py --name gen_frogs_conv5 --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 16 --load_size 224 --model vgg_gen --feat_layer 5 --inverter_path pretrained_models/frogs_conv5/modelInv.pth --gan_mode wgangp --niter 800 --display_port 8090
 
 Testing:
 CUDA_VISIBLE_DEVICES=2 python test.py --name invert_zebras_conv_norm --dataroot ./datasets/zebras --dataset_mode augmented --gpu_ids 0 --load_size 224 --model vgg_inverter --normalize_data True
@@ -21,3 +21,6 @@ CUDA_VISIBLE_DEVICES=0 python train.py --name gen_frogs_basic --dataroot ./datas
 CUDA_VISIBLE_DEVICES=2 python test.py --name invert_zebras_conv --dataroot ./datasets/zebras --dataset_mode augmented --gpu_ids 0 --load_size 224 --model vgg_inverter
 
 
+CUDA_VISIBLE_DEVICES=1 python train.py --name gen_frogs_conv4 --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 16 --load_size 224 --model vgg_gen --feat_layer 4 --inverter_path pretrained_models/frogs_conv4/modelInv.pth --gan_mode wgangp --niter 800 --display_port 8091
+CUDA_VISIBLE_DEVICES=2 python train.py --name gen_frogs_conv3 --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 16 --load_size 224 --model vgg_gen --feat_layer 3 --inverter_path pretrained_models/frogs_conv3/modelInv.pth --gan_mode wgangp --niter 800 --display_port 8092
+CUDA_VISIBLE_DEVICES=3 python train.py --name gen_frogs_conv2 --dataroot ./datasets/frogs --dataset_mode augmented --gpu_ids 0 --batch_size 16 --load_size 224 --model vgg_gen --feat_layer 2 --inverter_path pretrained_models/frogs_conv2/modelInv.pth --gan_mode wgangp --niter 800 --display_port 8093
