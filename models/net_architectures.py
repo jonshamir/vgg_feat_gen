@@ -210,38 +210,6 @@ class DeepGenerator(nn.Module):
         model += [nn.Conv2d(nf, final_nf, 3, 1, 1)]
         self.conv = nn.Sequential(*model)
 
-        # self.conv = nn.Sequential(
-        #     nn.Conv2d(128, nz, 3, 1, 1),
-        #     nn.BatchNorm2d(nz),
-        #     nn.LeakyReLU(0.2),
-        #
-        #     nn.Upsample(scale_factor=2),
-        #     nn.Conv2d(nz, 2 * nz, 3, 1, 1),
-        #     nn.BatchNorm2d(2 * nz),
-        #     nn.LeakyReLU(0.2),
-        #
-        #     nn.Upsample(scale_factor=2),
-        #     nn.Conv2d(2 * nz, 4 * nz, 3, 1, 1),
-        #     nn.BatchNorm2d(4 * nz),
-        #     nn.LeakyReLU(0.2),
-        #
-        #     nn.Upsample(scale_factor=2),
-        #     nn.Conv2d(4 * nz, 4 * nz, 3, 1, 1),
-        #     nn.BatchNorm2d(4 * nz),
-        #     nn.LeakyReLU(0.2),
-        #
-        #     nn.Upsample(scale_factor=2),
-        #     nn.Conv2d(4 * nz, 4 * nz, 3, 1, 1),
-        #     nn.BatchNorm2d(4 * nz),
-        #     nn.LeakyReLU(0.2),
-        #
-        #     nn.Conv2d(4 * nz, 8 * nz, 3, 1, 1),
-        #     nn.BatchNorm2d(8 * nz),
-        #     nn.LeakyReLU(0.2),
-        #
-        #     nn.Conv2d(8 * nz, 512, 3, 1, 0)
-        # )
-
     def forward(self, input):
         out = self.fc(input)
         out = self.conv(out)
@@ -293,6 +261,7 @@ class DeepDiscriminator(nn.Module):
         output = self.fc(l1.view(-1, self.layer_size ))
 
         return output
+
 
 def calc_gradient_penalty(netD, real_data, fake_data, device, type='mixed', constant=1.0, lambda_gp=10.0):
     """Calculate the gradient penalty loss, used in WGAN-GP paper https://arxiv.org/abs/1704.00028
