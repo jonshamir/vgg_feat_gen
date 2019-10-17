@@ -108,7 +108,7 @@ class VggGenModel(BaseModel):
         self.G_opt.step()
 
     def get_deep_feats(self, data):
-        feats = get_VGG_features(data, relu=self.vgg_relu)
+        feats = get_VGG_features(data, relu=self.vgg_relu, layer=self.feat_layer)
         if self.normalize_data:
             feats = (feats - self.data_mean) / self.data_std
             return torch.clamp(feats, -1., 1.)
