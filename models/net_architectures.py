@@ -258,7 +258,8 @@ class DeepDiscriminator(nn.Module):
     # forward method
     def forward(self, input):
         l1 = self.model(input)
-        output = self.fc(l1.view(-1, self.layer_size ))
+        print(l1.shape)
+        output = self.fc(l1.view(-1, self.layer_size))
 
         return output
 

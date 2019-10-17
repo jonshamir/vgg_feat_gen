@@ -62,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="264" selection-start-line="264" selection-end-line="264" />
+            <state relative-caret-position="427">
+              <caret line="260" column="22" selection-start-line="260" selection-start-column="22" selection-end-line="260" selection-end-column="22" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -284,7 +284,7 @@
       <workItem from="1570660437495" duration="134000" />
       <workItem from="1570690939779" duration="383000" />
       <workItem from="1570693453430" duration="8758000" />
-      <workItem from="1570896000038" duration="13755000" />
+      <workItem from="1570896000038" duration="14103000" />
     </task>
     <task id="LOCAL-00001" summary="PyCharm Project">
       <created>1567597050758</created>
@@ -304,7 +304,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124672000" />
+    <option name="totallyTimeSpent" value="125020000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="23" width="1400" height="805" extended-state="0" />
@@ -580,8 +580,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="264" selection-start-line="264" selection-end-line="264" />
+        <state relative-caret-position="427">
+          <caret line="260" column="22" selection-start-line="260" selection-start-column="22" selection-end-line="260" selection-end-column="22" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
