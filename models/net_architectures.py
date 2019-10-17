@@ -197,7 +197,7 @@ class DeepGenerator(nn.Module):
         for i in range(5):
             if i < layer - 1:
                 model += [nn.Upsample(scale_factor=2)]
-            if i < 3:
+            if i > 1:
                 nf *= 2
                 model += [nn.Conv2d(nf // 2, nf, 3, 1, 1)]
             else:
