@@ -14,6 +14,7 @@ class EncoderModel(BaseModel):
         parser.add_argument('--gen_path', type=str, default='pretrained_models', help='path to saved G')
         parser.add_argument('--inverter_path', type=str, default='pretrained_models', help='path to saved inverter')
         parser.add_argument('--nz', type=int, default='128', help='Size of the noise')
+        parser.add_argument('--feat_layer', type=int, default='5', help='VGG layer to get features from')
         return parser
 
     def __init__(self, opt):
@@ -30,9 +31,9 @@ class EncoderModel(BaseModel):
         # define networks
         self.nz = opt.nz
         self.netE = DeepEncoder().to(self.device)
-        self.netG = DeepGenerator().to(self.device)
+        self.netG = DeepGenerator(layer=opt.feat_layer).to(self.device)
         self.netG.load_state_dict(torch.load(opt.gen_path))
-        self.netInv = VGGInverterG().to(self.device)
+        self.netInv = VGGInverterG(layer=opt.feat_layer).to(self.device)
         self.netInv.load_state_dict(torch.load(opt.inverter_path))
 
         if self.isTrain:
