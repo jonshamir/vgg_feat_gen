@@ -303,23 +303,25 @@ class DeepEncoder(nn.Module):
     def __init__(self, layer=5):
         super(DeepEncoder, self).__init__()
         nf = VGG_NUM_CHANNELS[layer] # number of feature channels
-        size = VGG_SIZES[layer]
+        spatial_size = VGG_SIZES[layer]
 
         model = []
 
         for i in range(4):
-            curr_stride = 2 if size > 7 else 1
+            curr_stride = 2 if spatial_size > 7 else 1
             model += [
                 nn.Conv2d(nf, nf // 2, 4, stride=curr_stride, padding=1),
                 nn.LeakyReLU(0.2, True)
             ]
             nf //= 2
-            size //= 2
+            spatial_size //= 2
 
         self.conv = nn.Sequential(*model)
 
+        out_size = nf * spatial_size * spatial_size
+
         self.fc = nn.Sequential(
-            nn.Linear(nf * size * size, 512),
+            nn.Linear(out_size, 512),
             nn.LeakyReLU(0.2, True),
             nn.Linear(512, 128)
         )
