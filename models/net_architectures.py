@@ -314,11 +314,13 @@ class DeepEncoder(nn.Module):
             else:
                 curr_stride = 1
 
+            nf //= 2
+
             model += [
-                nn.Conv2d(nf, nf // 2, 4, stride=curr_stride, padding=1),
+                nn.Conv2d(2 * nf, nf, 4, stride=curr_stride, padding=1),
                 nn.LeakyReLU(0.2, True)
             ]
-            nf //= 2
+
 
         self.conv = nn.Sequential(*model)
 
