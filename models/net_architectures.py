@@ -309,7 +309,7 @@ class DeepEncoder(nn.Module):
 
         for i in range(4):
             if spatial_size > 7:
-                spatial_size //=2
+                spatial_size //= 2
                 curr_stride = 2
             else:
                 curr_stride = 1
@@ -320,7 +320,6 @@ class DeepEncoder(nn.Module):
                 nn.Conv2d(2 * nf, nf, 4, stride=curr_stride, padding=1),
                 nn.LeakyReLU(0.2, True)
             ]
-
 
         self.conv = nn.Sequential(*model)
 
@@ -339,5 +338,6 @@ class DeepEncoder(nn.Module):
         # input: (N, nc, 224, 224)
         out = self.conv(input)
         out = out.view(out.size(0), -1)
+        print(out.shape)
         out = self.fc(out)
         return out
