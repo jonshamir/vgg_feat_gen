@@ -337,6 +337,7 @@ class DeepEncoder(nn.Module):
     def forward(self, input):
         # input: (N, nc, 224, 224)
         out = self.conv(input)
+        print(out.shape)
         out = out.view(out.size(0), -1)
         print(out.shape)
         out = self.fc(out)
