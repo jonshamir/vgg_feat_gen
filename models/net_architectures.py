@@ -310,9 +310,9 @@ class DeepEncoder(nn.Module):
         for i in range(4):
             if spatial_size > 7:
                 spatial_size //= 2
-                model += [nn.Conv2d(2 * nf, nf, 4, stride=2, padding=1)]
+                model += [nn.Conv2d(nf, nf // 2, 4, stride=2, padding=1)]
             else:
-                model += [nn.Conv2d(2 * nf, nf, 3, stride=1, padding=1)]
+                model += [nn.Conv2d(nf, nf // 2, 3, stride=1, padding=1)]
 
             nf //= 2
             model += [nn.LeakyReLU(0.2, True)]
