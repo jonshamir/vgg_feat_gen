@@ -308,7 +308,7 @@ class DeepEncoder(nn.Module):
         model = []
 
         for i in range(4):
-            if spatial_size > 14:
+            if spatial_size > 7:
                 spatial_size //= 2
                 curr_stride = 2
             else:
