@@ -319,7 +319,7 @@ class DeepEncoder(nn.Module):
         self.conv = nn.Sequential(*model)
 
         self.fc = nn.Sequential(
-            nn.Linear(64 * 7 * 7, 512),
+            nn.Linear(nf * size * size, 512),
             nn.LeakyReLU(0.2, True),
             nn.Linear(512, 128)
         )
