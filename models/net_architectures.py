@@ -3,6 +3,7 @@ import torch.nn as nn
 import math
 
 VGG_NUM_CHANNELS = [3, 64, 128, 256, 512, 512]
+VGG_SIZES = [224, 224, 112, 56, 28, 14]
 
 class View(nn.Module):
     def __init__(self, *shape):
@@ -299,19 +300,23 @@ def calc_gradient_penalty(netD, real_data, fake_data, device, type='mixed', cons
         return 0.0, None
 
 class DeepEncoder(nn.Module):
-    def __init__(self, nc=512):
+    def __init__(self, layer=5):
         super(DeepEncoder, self).__init__()
-        self.conv = nn.Sequential(
-            # 14 -> 14
-            nn.Conv2d(nc, 256, 3, stride=1, padding=1),
-            nn.LeakyReLU(0.2, True),
-            # 14 -> 7
-            nn.Conv2d(256, 128, 3, stride=2, padding=1),
-            nn.LeakyReLU(0.2, True),
-            # 7 -> 7
-            nn.Conv2d(128, 64, 3, stride=1, padding=1),
-            nn.LeakyReLU(0.2, True)
-        )
+        nf = VGG_NUM_CHANNELS[layer] # number of feature channels
+        size = VGG_SIZES[layer]
+
+        model = []
+
+        for i in range(4):
+            curr_stride = 2 if size > 7 else 1
+            model += [
+                nn.Conv2d(nf, nf // 2, 4, stride=curr_stride, padding=1),
+                nn.LeakyReLU(0.2, True)
+            ]
+            nf //= 2
+            size //= 2
+
+        self.conv = nn.Sequential(*model)
 
         self.fc = nn.Sequential(
             nn.Linear(64 * 7 * 7, 512),
