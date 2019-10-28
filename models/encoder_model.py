@@ -30,7 +30,7 @@ class EncoderModel(BaseModel):
 
         # define networks
         self.nz = opt.nz
-        self.netE = DeepEncoder().to(self.device)
+        self.netE = DeepEncoder(layer=opt.feat_layer).to(self.device)
         self.netG = DeepGenerator(layer=opt.feat_layer).to(self.device)
         self.netG.load_state_dict(torch.load(opt.gen_path))
         self.netInv = VGGInverterG(layer=opt.feat_layer).to(self.device)
