@@ -320,9 +320,6 @@ class DeepEncoder(nn.Module):
         self.conv = nn.Sequential(*model)
 
         out_size = nf * spatial_size * spatial_size
-        print(nf)
-        print(spatial_size)
-        print(out_size)
 
         self.fc = nn.Sequential(
             nn.Linear(out_size, 512),
@@ -333,8 +330,6 @@ class DeepEncoder(nn.Module):
     def forward(self, input):
         # input: (N, nc, 224, 224)
         out = self.conv(input)
-        print(out.shape)
         out = out.view(out.size(0), -1)
-        print(out.shape)
         out = self.fc(out)
         return out
