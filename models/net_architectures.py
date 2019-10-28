@@ -310,16 +310,12 @@ class DeepEncoder(nn.Module):
         for i in range(4):
             if spatial_size > 7:
                 spatial_size //= 2
-                curr_stride = 2
+                model += [nn.Conv2d(2 * nf, nf, 4, stride=2, padding=1)]
             else:
-                curr_stride = 1
+                model += [nn.Conv2d(2 * nf, nf, 3, stride=1, padding=1)]
 
             nf //= 2
-
-            model += [
-                nn.Conv2d(2 * nf, nf, 4, stride=curr_stride, padding=1),
-                nn.LeakyReLU(0.2, True)
-            ]
+            model += [nn.LeakyReLU(0.2, True)]
 
         self.conv = nn.Sequential(*model)
 
