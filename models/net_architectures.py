@@ -325,6 +325,9 @@ class DeepEncoder(nn.Module):
         self.conv = nn.Sequential(*model)
 
         out_size = nf * spatial_size * spatial_size
+        print(nf)
+        print(spatial_size)
+        print(out_size)
 
         self.fc = nn.Sequential(
             nn.Linear(out_size, 512),
