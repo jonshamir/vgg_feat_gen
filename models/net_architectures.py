@@ -219,17 +219,17 @@ class DeepGenerator(nn.Module):
 
 class DeepDiscriminator(nn.Module):
     # initializers
-    def __init__(self, layer=5, ndf=128):
+    def __init__(self, layer=5):
         super(DeepDiscriminator, self).__init__()
         gen_ch = VGG_NUM_CHANNELS[layer]
         feature_size = 224 // (2**(layer - 1))
-        num_layers = math.ceil(math.sqrt(feature_size))
-        num_strided_layers = 7 - layer
+        num_layers = 8
+        num_strided_layers = num_layers - layer
 
         model = []
 
         in_ch = gen_ch
-        out_ch = ndf
+        out_ch = in_ch
         model += [nn.Conv2d(in_ch, out_ch, kernel_size=3, stride=1, padding=1, bias=True)]
         model += [nn.LeakyReLU(0.2, True)]
 
@@ -238,15 +238,11 @@ class DeepDiscriminator(nn.Module):
             out_ch = min(in_ch * 2, 512)
             model += [nn.Conv2d(in_ch, out_ch, kernel_size=3, stride=2, padding=1)]
             model += [nn.LeakyReLU(0.2, True)]
-            model += [nn.Conv2d(out_ch, out_ch, kernel_size=3, stride=1, padding=1)]
-            model += [nn.LeakyReLU(0.2, True)]
 
-        for _ in range(2):
+        for _ in range(num_layers - num_strided_layers):
             in_ch = out_ch
             out_ch = max(in_ch // 2, 128)
             model += [nn.Conv2d(in_ch, out_ch , kernel_size=3, stride=1, padding=1)]
-            model += [nn.LeakyReLU(0.2, True)]
-            model += [nn.Conv2d(out_ch, out_ch , kernel_size=3, stride=1, padding=1)]
             model += [nn.LeakyReLU(0.2, True)]
 
         self.model = nn.Sequential(*model)
