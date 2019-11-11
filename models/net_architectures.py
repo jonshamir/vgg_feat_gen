@@ -238,9 +238,8 @@ class DeepDiscriminator(nn.Module):
             out_ch = min(in_ch * 2, 512)
             model += [nn.Conv2d(in_ch, out_ch, kernel_size=3, stride=2, padding=1)]
             model += [nn.LeakyReLU(0.2, True)]
-            model += [nn.Conv2d(in_ch, out_ch, kernel_size=3, stride=1, padding=1)]
+            model += [nn.Conv2d(out_ch, out_ch, kernel_size=3, stride=1, padding=1)]
             model += [nn.LeakyReLU(0.2, True)]
-
 
         for _ in range(2):
             in_ch = out_ch
