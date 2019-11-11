@@ -250,8 +250,8 @@ class DeepDiscriminator(nn.Module):
         self.layer_size = 4 * 4 * out_ch
 
         self.fc = nn.Sequential(
-            nn.Linear(self.layer_size, ndf),
-            nn.Linear(ndf, 1)
+            nn.Linear(self.layer_size, 128),
+            nn.Linear(128, 1)
         )
 
     # forward method
