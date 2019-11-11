@@ -230,7 +230,7 @@ class DeepDiscriminator(nn.Module):
         model = []
 
         in_ch = gen_ch
-        out_ch = in_ch
+        out_ch = 64 if layer == 0 else in_ch
         model += [nn.Conv2d(in_ch, out_ch, kernel_size=3, stride=1, padding=1, bias=True)]
         model += [nn.LeakyReLU(0.2, True)]
 
