@@ -68,7 +68,7 @@ class VggGenModel(BaseModel):
         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>"""
         self.noise = self.sample_noise()
         self.fake_feats = self.netG(self.noise)
-        if opt.feat_layer > 0:
+        if self.feat_layer > 0:
             self.fake_data = self.netInv(self.fake_feats)
         else:
             self.fake_data = self.fake_feats
