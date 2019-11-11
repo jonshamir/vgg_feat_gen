@@ -37,9 +37,10 @@ class VggGenModel(BaseModel):
         # define networks
         self.nz = opt.nz
         self.netG = DeepGenerator(layer=opt.feat_layer).to(self.device)
-        print(self.netG)
-        self.netInv = VGGInverterG(layer=opt.feat_layer).to(self.device)
-        self.netInv.load_state_dict(torch.load(opt.inverter_path))
+
+        if opt.feat_layer > 0:
+            self.netInv = VGGInverterG(layer=opt.feat_layer).to(self.device)
+            self.netInv.load_state_dict(torch.load(opt.inverter_path))
 
         if self.isTrain:
             self.netD = DeepDiscriminator(layer=opt.feat_layer).to(self.device)
@@ -67,7 +68,10 @@ class VggGenModel(BaseModel):
         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>"""
         self.noise = self.sample_noise()
         self.fake_feats = self.netG(self.noise)
-        self.fake_data = self.netInv(self.fake_feats)
+        if opt.feat_layer > 0:
+            self.fake_data = self.netInv(self.fake_feats)
+        else:
+            self.fake_data = self.fake_feats
 
     def backward_G(self):
         z_outputs = self.netD(self.fake_feats)
@@ -107,6 +111,7 @@ class VggGenModel(BaseModel):
         self.G_opt.step()
 
     def get_deep_feats(self, data):
+        if self.feat_layer == 0: return data
         feats = get_VGG_features(data, relu=self.vgg_relu, layer=self.feat_layer)
         if self.normalize_data:
             feats = (feats - self.data_mean) / self.data_std
