@@ -209,11 +209,6 @@ class DeepGenerator(nn.Module):
                 nn.LeakyReLU(0.2)
             ]
 
-        print('=======================')
-        print(nf)
-        print(final_nf)
-        print('=======================')
-
         model += [nn.Conv2d(nf, final_nf, 3, 1, 1)]
         self.conv = nn.Sequential(*model)
 

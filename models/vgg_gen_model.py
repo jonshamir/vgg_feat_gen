@@ -37,6 +37,7 @@ class VggGenModel(BaseModel):
         # define networks
         self.nz = opt.nz
         self.netG = DeepGenerator(layer=opt.feat_layer).to(self.device)
+        print(self.netG)
         self.netInv = VGGInverterG(layer=opt.feat_layer).to(self.device)
         self.netInv.load_state_dict(torch.load(opt.inverter_path))
 
