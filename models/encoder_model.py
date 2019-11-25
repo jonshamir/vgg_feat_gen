@@ -43,6 +43,7 @@ class EncoderModel(BaseModel):
             # define and initialize optimizers
             self.E_opt = torch.optim.Adam(self.netE.parameters(), lr=opt.lr, betas=(opt.beta1, 0.99))
             self.optimizers = [self.E_opt]
+            self.batch_size = opt.batch_size
 
     def set_input(self, input):
         self.image_paths = input['A_paths']
@@ -50,14 +51,14 @@ class EncoderModel(BaseModel):
         self.real_noise = self.sample_noise()
 
     def sample_noise(self):
-        return torch.randn(32, self.nz, device=self.device)
+        return torch.randn(self.batch_size, self.nz, device=self.device)
 
     def forward(self):
         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>"""
-        self.fake_data = self.netG(self.real_noise.detach()).detach()
-        # self.real_noise_inv = self.netInv(self.fake_data).detach()
+        self.fake_data = self.netG(self.real_noise)
+        self.real_noise_inv = self.netInv(self.fake_data)
         self.fake_noise = self.netE(self.fake_data.detach())
-        # self.fake_noise_inv = self.netInv(self.netG(self.fake_noise.detach()).detach()).detach()
+        self.fake_noise_inv = self.netInv(self.netG(self.fake_noise))
 
     def backward_E(self):
         self.loss_E = self.L1(self.fake_noise, self.real_noise)
