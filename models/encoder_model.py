@@ -55,9 +55,9 @@ class EncoderModel(BaseModel):
     def forward(self):
         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>"""
         self.fake_data = self.netG(self.real_noise).detach()
-        self.real_noise_inv = self.netInv(self.fake_data)
+        self.real_noise_inv = self.netInv(self.fake_data).detach()
         self.fake_noise = self.netE(self.fake_data.detach())
-        self.fake_noise_inv = 0 #self.netInv(self.netG(self.fake_noise.detach()).detach())
+        self.fake_noise_inv = self.netInv(self.netG(self.fake_noise.detach()).detach()).detach()
 
     def backward_E(self):
         self.loss_E = self.L1(self.fake_noise, self.real_noise)
