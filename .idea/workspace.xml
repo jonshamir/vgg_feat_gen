@@ -2,7 +2,267 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bab485a6-287d-4619-ace2-2436fe2f603b" name="Default Changelist" comment="PyCharm Project">
-      <change beforePath="$PROJECT_DIR$/models/encoder_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/encoder_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/commands.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_frogs_conv/test_latest/images/frog-1015_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_frogs_conv/test_latest/images/frog-1018_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_frogs_conv/test_latest/images/frog-101_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_frogs_conv/test_latest/images/frog-1026_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_frogs_conv/test_latest/images/frog-1027_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_frogs_conv/test_latest/images/frog-1033_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_frogs_conv/test_latest/images/frog-1034_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_frogs_conv/test_latest/images/frog-1037_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_frogs_conv/test_latest/images/frog-103_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000000034_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000000154_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000000827_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000001228_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000001501_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000001777_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000001907_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000002232_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000002684_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000003867_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000004318_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000004508_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000004754_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000005344_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000005362_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000006450_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000006599_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000006688_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000007522_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000007566_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000008290_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000008320_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000009214_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000009548_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000009709_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000009988_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000010077_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000010211_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000010327_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000010702_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000010733_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000010822_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000011554_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000011926_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000011948_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000012382_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000012495_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000012750_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000012756_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000013150_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000013356_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000013517_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000013948_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000014276_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000014377_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000014820_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000014862_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000014998_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000015301_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv1/test_latest/images/000000015565_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000000034_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000000154_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000000827_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000001228_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000001501_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000001777_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000001907_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000002232_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000002684_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000003867_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000004318_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000004508_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000004754_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000005344_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000005362_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000006450_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000006599_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000006688_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000007522_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000007566_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000008290_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000008320_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000009214_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000009548_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000009709_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000009988_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000010077_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000010211_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000010327_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000010702_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000010733_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000010822_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000011554_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000011926_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000011948_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000012382_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000012495_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000012750_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000012756_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000013150_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000013356_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000013517_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000013948_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000014276_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000014377_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000014820_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000014862_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000014998_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000015301_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv2/test_latest/images/000000015565_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000000034_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000000154_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000000827_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000001228_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000001501_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000001777_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000001907_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000002232_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000002684_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000003867_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000004318_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000004508_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000004754_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000005344_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000005362_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000006450_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000006599_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000006688_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000007522_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000007566_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000008290_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000008320_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000009214_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000009548_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000009709_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000009988_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000010077_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000010211_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000010327_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000010702_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000010733_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000010822_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000011554_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000011926_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000011948_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000012382_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000012495_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000012750_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000012756_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000013150_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000013356_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000013517_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000013948_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000014276_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000014377_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000014820_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000014862_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000014998_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000015301_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv3/test_latest/images/000000015565_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000000034_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000000154_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000000827_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000001228_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000001501_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000001777_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000001907_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000002232_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000002684_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000003867_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000004318_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000004508_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000004754_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000005344_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000005362_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000006450_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000006599_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000006688_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000007522_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000007566_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000008290_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000008320_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000009214_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000009548_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000009709_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000009988_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000010077_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000010211_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000010327_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000010702_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000010733_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000010822_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000011554_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000011926_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000011948_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000012382_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000012495_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000012750_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000012756_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000013150_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000013356_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000013517_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000013948_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000014276_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000014377_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000014820_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000014862_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000014998_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000015301_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv4/test_latest/images/000000015565_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000000034_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000000154_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000000827_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000001228_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000001501_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000001777_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000001907_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000002232_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000002684_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000003867_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000004318_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000004508_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000004754_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000005344_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000005362_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000006450_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000006599_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000006688_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000007522_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000007566_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000008290_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000008320_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000009214_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000009548_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000009709_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000009988_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000010077_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000010211_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000010327_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000010702_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000010733_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000010822_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000011554_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000011926_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000011948_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000012382_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000012495_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000012750_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000012756_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000013150_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000013356_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000013517_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000013948_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000014276_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000014377_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000014820_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000014862_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000014998_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000015301_real_data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gen_zebras_conv5/test_latest/images/000000015565_real_data.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,32 +286,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commands.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
+            <state relative-caret-position="237">
+              <caret line="21" column="221" selection-start-line="21" selection-end-line="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/augmented_dataset.py">
+        <entry file="file://$PROJECT_DIR$/models/vgg_gen_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/encoder_model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+            <state relative-caret-position="966">
+              <caret line="45" column="21" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="21" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -62,20 +310,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="302" column="16" selection-start-line="302" selection-start-column="10" selection-end-line="302" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/vgg_gen_model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
+            <state relative-caret-position="6049">
+              <caret line="265" column="34" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="34" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -87,8 +323,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get_current_visuals_old</find>
-      <find>VGGInverterG</find>
       <find>print</find>
       <find>compute_visuals</find>
       <find>student</find>
@@ -116,7 +350,9 @@
       <find>DeepDiscriminator</find>
       <find>ndf128</find>
       <find>DeepGenerator</find>
+      <find>32</find>
       <find>encode</find>
+      <find>netD</find>
     </findStrings>
     <replaceStrings>
       <replace>augmented</replace>
@@ -155,8 +391,8 @@
         <option value="$PROJECT_DIR$/models/vgg_gen_model.py" />
         <option value="$PROJECT_DIR$/models/net_architectures.py" />
         <option value="$PROJECT_DIR$/data/augmented_dataset.py" />
-        <option value="$PROJECT_DIR$/commands.txt" />
         <option value="$PROJECT_DIR$/models/encoder_model.py" />
+        <option value="$PROJECT_DIR$/commands.txt" />
       </list>
     </option>
   </component>
@@ -180,17 +416,7 @@
             <path>
               <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
               <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vgg_feat_gen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vgg_feat_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="pretrained_models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -275,7 +501,8 @@
       <workItem from="1574185011521" duration="382000" />
       <workItem from="1574232133216" duration="1341000" />
       <workItem from="1574442600387" duration="337000" />
-      <workItem from="1574608177453" duration="2257000" />
+      <workItem from="1574608177453" duration="5066000" />
+      <workItem from="1574793174169" duration="27000" />
     </task>
     <task id="LOCAL-00001" summary="PyCharm Project">
       <created>1567597050758</created>
@@ -295,13 +522,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149924000" />
+    <option name="totallyTimeSpent" value="152760000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="864" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21244635" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21530758" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Remote Host" order="3" sideWeight="0.8074074" weight="0.2054492" />
@@ -356,16 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="10" column="31" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vgg_extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="33" column="17" selection-start-line="33" selection-end-line="34" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -458,16 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/features_inverter_model.py" />
     <entry file="file://$PROJECT_DIR$/models/template_model.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -502,30 +708,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/vgg_extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="61" column="36" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/vgg_inverter_model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2001">
           <caret line="91" column="80" selection-start-line="91" selection-start-column="59" selection-end-line="91" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/vgg_gen_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -542,16 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="302" column="16" selection-start-line="302" selection-start-column="10" selection-end-line="302" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/augmented_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -562,17 +738,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands.txt">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
+        <state relative-caret-position="414">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vgg_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="15" lean-forward="true" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/vgg_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/encoder_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+        <state relative-caret-position="736">
+          <caret line="32" column="52" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="21" column="221" selection-start-line="21" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/vgg_gen_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/net_architectures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6049">
+          <caret line="265" column="34" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="34" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
